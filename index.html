@@ -3,18 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Runbook de búsqueda de empleo — mapa del sistema</title>
-<meta name="description" content="Procedimiento estándar de búsqueda de empleo para perfiles técnicos: CV multiformato, preparación de entrevistas, postulación y proceso de contratación.">
+<title>Runbook de búsqueda de empleo para perfiles técnicos</title>
+<meta name="description" content="Procedimiento estándar de punta a punta: CV multiformato, preparación de entrevistas, postulación y proceso de contratación. Con recetas técnicas y checklists.">
 <meta name="color-scheme" content="light dark">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Runbook de búsqueda de empleo — mapa del sistema">
-<meta property="og:description" content="Procedimiento estándar de búsqueda de empleo para perfiles técnicos: CV multiformato, preparación de entrevistas, postulación y proceso de contratación.">
-<meta property="og:url" content="https://hgomezgonzalez.github.io/runbook-busqueda-empleo/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Runbook de búsqueda de empleo para perfiles técnicos">
+<meta property="og:description" content="Procedimiento estándar de punta a punta: CV multiformato, preparación de entrevistas, postulación y proceso de contratación. Con recetas técnicas y checklists.">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
-</head>
-<body>
-<button id="theme" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
 <style>
   :root{
     --paper:#fbfbfc; --surface:#ffffff; --sunk:#f2f4f7;
@@ -170,23 +166,75 @@
     font-size:.84rem;color:var(--ink-faint)}
 
 
-  a.file{text-decoration:none;border-bottom:1px dotted var(--ink-faint);transition:color .15s,border-color .15s}
-  a.file:hover{color:var(--accent);border-bottom-color:var(--accent)}
-  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:9px;
-    font-size:.92rem;font-weight:550;text-decoration:none;border:1px solid var(--line);
-    background:var(--surface);color:var(--ink);transition:border-color .15s,transform .12s}
-  .btn:hover{border-color:var(--accent);transform:translateY(-1px)}
-  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
-  :root[data-theme="dark"] .btn.primary,
-  :root:not([data-theme="light"]) .btn.primary{color:var(--paper)}
-  @media (prefers-color-scheme:dark){.btn.primary{color:#0e1319}}
-  .btn.primary:hover{filter:brightness(1.08);border-color:var(--brand)}
-  #theme{position:fixed;top:16px;right:16px;z-index:50;width:38px;height:38px;border-radius:50%;
-    border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);
-    cursor:pointer;font-size:1rem;line-height:1;box-shadow:var(--shadow)}
-  #theme:hover{border-color:var(--accent);color:var(--accent)}
-  @media print{#theme,.cta{display:none}}
+  /* ---------- índice ---------- */
+  #indice{scroll-margin-top:20px}
+  .idx{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px;margin-top:22px}
+  .idx a{display:flex;flex-direction:column;gap:2px;padding:14px 16px;background:var(--surface);
+    border:1px solid var(--line);border-left:3px solid var(--brand-soft);border-radius:9px;
+    text-decoration:none;box-shadow:var(--shadow);transition:border-color .15s,transform .12s}
+  .idx a:hover{border-left-color:var(--accent);transform:translateY(-1px)}
+  .idx a b{font-family:var(--mono);font-size:.71rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+  .idx a span{font-family:var(--serif);font-size:1rem;color:var(--ink);line-height:1.3}
+
+  /* ---------- contenido ---------- */
+  .doc{padding-top:14px;scroll-margin-top:16px}
+  .doc + .doc{margin-top:22px;border-top:1px solid var(--line)}
+  .doc-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:44px 0 20px}
+  .doc-head .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+    color:#fff;background:var(--brand);padding:4px 10px;border-radius:20px;white-space:nowrap}
+  .doc-head h2{margin:0;font-size:1.62rem}
+  .doc h3{font-family:var(--serif);font-size:1.24rem;font-weight:600;margin:34px 0 8px;
+    letter-spacing:-.005em;text-wrap:balance}
+  .doc h4{font-size:1.02rem;font-weight:650;margin:24px 0 6px;color:var(--brand)}
+  .doc h5{font-size:.94rem;font-weight:650;margin:18px 0 5px}
+  .doc p{margin:0 0 13px;max-width:68ch}
+  .doc ul,.doc ol{margin:0 0 14px;padding-left:22px;max-width:68ch;display:grid;gap:6px}
+  .doc li{color:var(--ink-soft)}
+  .doc li strong,.doc p strong{color:var(--ink)}
+  .doc ul.check{list-style:none;padding-left:0}
+  .doc ul.check li{position:relative;padding-left:27px}
+  .doc ul.check li::before{content:"";position:absolute;left:0;top:.28em;width:15px;height:15px;
+    border:1.5px solid var(--line);border-radius:4px;background:var(--surface)}
+  .doc blockquote{margin:16px 0;padding:14px 18px;background:var(--sunk);
+    border-left:3px solid var(--accent-soft);border-radius:0 9px 9px 0;color:var(--ink-soft);max-width:68ch}
+  .doc blockquote em{color:var(--ink)}
+  .doc hr{border:none;border-top:1px solid var(--line-soft);margin:26px 0}
+  .doc code{font-family:var(--mono);font-size:.87em;background:var(--sunk);
+    padding:1px 5px;border-radius:4px;color:var(--brand)}
+  .doc pre{background:var(--sunk);border:1px solid var(--line);border-radius:10px;
+    padding:15px 18px;overflow-x:auto;margin:0 0 16px}
+  .doc pre code{background:none;padding:0;color:var(--ink-soft);font-size:.83rem;line-height:1.65}
+  .tw{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  .doc table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:460px}
+  .doc th,.doc td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  .doc thead th{background:var(--sunk);font-size:.75rem;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--brand)}
+  .doc td:first-child{color:var(--ink)}
+  .doc tr:last-child td{border-bottom:none}
+  .top{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:.73rem;
+    color:var(--ink-faint);text-decoration:none}
+  .top:hover{color:var(--accent)}
+
+  /* ---------- impresión ---------- */
+  @page{margin:16mm 14mm}
+  @media print{
+    :root{--paper:#fff;--surface:#fff;--sunk:#f5f6f8;--ink:#000;--ink-soft:#333;
+      --ink-faint:#666;--line:#ccc;--line-soft:#e2e2e2;--brand:#1d3557;--accent:#8f4720;--shadow:none}
+    body{font-size:10.5pt;background:#fff}
+    #theme,.cta,.idx,.top,footer{display:none!important}
+    .wrap{max-width:100%;padding:0}
+    .head{padding:0 0 18px;break-after:avoid}
+    h1{font-size:24pt}
+    .facts,.axiom{break-inside:avoid}
+    .doc{break-before:page;padding-top:0}
+    .doc:first-of-type{break-before:auto}
+    .doc-head{margin:0 0 14px;break-after:avoid}
+    .doc h3,.doc h4,.doc h5{break-after:avoid}
+    .phase,.week,.card,.rule,.tw,.doc pre,.doc blockquote,.note{break-inside:avoid}
+    .track::before{display:none}
+    .phase::before{border-color:#8f4720}
+    a{color:inherit;text-decoration:none}
+  }
   @media (max-width:640px){
     .head{padding:44px 0 32px}
     .track{padding-left:0}
@@ -196,7 +244,27 @@
     .axiom p{font-size:1.15rem}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+  a.file{text-decoration:none;font-family:var(--mono);font-size:.73rem;color:var(--accent);
+    border-bottom:1px dotted var(--accent-soft)}
+  a.file:hover{border-bottom-style:solid}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:9px;
+    font-size:.92rem;font-weight:550;font-family:var(--sans);text-decoration:none;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;
+    transition:border-color .15s,transform .12s}
+  .btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:var(--paper)}
+  .btn.primary:hover{filter:brightness(1.1)}
+  #theme{position:fixed;top:16px;right:16px;z-index:50;width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);
+    cursor:pointer;font-size:1rem;line-height:1;box-shadow:var(--shadow)}
+  #theme:hover{border-color:var(--accent);color:var(--accent)}
 </style>
+</head>
+<body>
+<button id="theme" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
+
 
 <div class="wrap">
 
@@ -216,9 +284,8 @@
     </div>
 
     <div class="cta">
-      <a class="btn primary" href="00_RUNBOOK.md">Abrir el runbook →</a>
-      <a class="btn" href="https://github.com/hgomezgonzalez/runbook-busqueda-empleo">Ver en GitHub</a>
-      <a class="btn" href="https://github.com/hgomezgonzalez/runbook-busqueda-empleo/archive/refs/heads/main.zip">Descargar ZIP</a>
+      <a class="btn primary" href="#indice">Ver el contenido ↓</a>
+      <button class="btn" type="button" onclick="window.print()">Imprimir o guardar en PDF</button>
     </div>
   </header>
 
@@ -238,7 +305,7 @@
 
       <article class="phase" data-n="00">
         <h3>La fuente única de verdad</h3>
-        <a class="file" href="01_datos_base.md">01_datos_base.md</a>
+        <a class="file" href="#f0">Leer esta sección ↓</a>
         <p class="out">Produce: <b>un archivo de datos bilingüe</b> con toda tu información profesional.</p>
         <ul class="bullets">
           <li>Esquema fijo: perfil, métricas de impacto, experiencia, competencias con nivel, formación,
@@ -251,7 +318,7 @@
 
       <article class="phase" data-n="01">
         <h3>CV en varios formatos</h3>
-        <a class="file" href="02_cv_multiformato.md">02_cv_multiformato.md</a>
+        <a class="file" href="#f1">Leer esta sección ↓</a>
         <p class="out">Produce: <b>CV para filtros, CV diseñado, CV web y foto</b> — todo desde los mismos datos.</p>
         <ul class="bullets">
           <li><b>Versión ATS:</b> una columna, sin tablas ni iconos. La que leen los filtros automáticos</li>
@@ -264,7 +331,7 @@
 
       <article class="phase" data-n="02">
         <h3>Cartas y LinkedIn</h3>
-        <a class="file" href="03_cartas_y_linkedin.md">03_cartas_y_linkedin.md</a>
+        <a class="file" href="#f2">Leer esta sección ↓</a>
         <p class="out">Produce: <b>cartas por cargo e idioma</b> y el perfil listo para pegar campo por campo.</p>
         <ul class="bullets">
           <li>La carta como datos: variantes por cargo sobre los mismos hechos.
@@ -277,7 +344,7 @@
 
       <article class="phase" data-n="03">
         <h3>Preparación de entrevista</h3>
-        <a class="file" href="04_preparacion_entrevista.md">04_preparacion_entrevista.md</a>
+        <a class="file" href="#f3">Leer esta sección ↓</a>
         <p class="out">Produce: <b>guía de estudio, glosario, banco de preguntas y simulador</b>.</p>
         <ul class="bullets">
           <li>El diagnóstico: la mayoría de entrevistas no se pierden por no saber, sino
@@ -292,7 +359,7 @@
 
       <article class="phase" data-n="04">
         <h3>Postulación</h3>
-        <a class="file" href="05_postulacion.md">05_postulacion.md</a>
+        <a class="file" href="#f4">Leer esta sección ↓</a>
         <p class="out">Produce: <b>postulaciones enviadas</b> y una tabla que te dice qué hacer cada día.</p>
         <ul class="bullets">
           <li>Los canales ordenados por tasa de respuesta real —
@@ -306,7 +373,7 @@
 
       <article class="phase" data-n="05">
         <h3>Proceso de contratación</h3>
-        <a class="file" href="06_contratacion_documentos.md">06_contratacion_documentos.md</a>
+        <a class="file" href="#f5">Leer esta sección ↓</a>
         <p class="out">Produce: <b>el paquete documental</b> completo, organizado y dentro del límite de tamaño.</p>
         <ul class="bullets">
           <li>La carpeta permanente: reúne <b>hoy</b> lo que te van a pedir con plazo de días</li>
@@ -358,7 +425,7 @@
     <div class="annex">
       <div class="card">
         <h4>Recetas técnicas</h4>
-        <a class="file" href="ANEXO_A_recetas_tecnicas.md">ANEXO_A_recetas_tecnicas.md</a> · 7 recetas
+        <a class="file" href="#anexoa">Leer esta sección ↓</a> · 7 recetas
         <ul>
           <li>Comprimir PDFs sin arruinarlos — y por qué no tocar los que ya tienen texto</li>
           <li>Medir si la compresión dañó lo importante, no el promedio</li>
@@ -371,7 +438,7 @@
       </div>
       <div class="card">
         <h4>Checklists</h4>
-        <a class="file" href="ANEXO_B_checklists.md">ANEXO_B_checklists.md</a>
+        <a class="file" href="#anexob">Leer esta sección ↓</a>
         <ul>
           <li>Antes de enviar una postulación</li>
           <li>Antes de una entrevista — investigación, preparación y logística</li>
@@ -441,47 +508,907 @@
     </div>
   </section>
 
-  <section>
-    <h2>Qué hay en la carpeta</h2>
-    <p class="sub">Trece archivos, autocontenidos. Se comprime y se envía tal cual.</p>
-    <div class="tree"><pre><span class="d">runbook-busqueda-empleo/</span>
-  00_RUNBOOK.md                  <span class="c">← empieza aquí: mapa, cronograma, reglas</span>
-  01_datos_base.md
-  02_cv_multiformato.md
-  03_cartas_y_linkedin.md
-  04_preparacion_entrevista.md
-  05_postulacion.md
-  06_contratacion_documentos.md
-  ANEXO_A_recetas_tecnicas.md    <span class="c">← código funcional</span>
-  ANEXO_B_checklists.md
-  <span class="d">plantillas/</span>
-    datos_base.py                <span class="c">← esquema con marcadores</span>
-    LISTA_DOCUMENTOS.md
-    seguimiento_postulaciones.md
-    banco_preguntas.md</pre></div>
+  
 
-    <div class="note"><b>Sobre compartirlo:</b> el runbook contiene el método, no datos de nadie —
-      es seguro enviarlo tal cual. Lo que nunca debe salir es la carpeta de trabajo con documentos
-      personales: identidad, dirección y datos familiares. Esa advertencia va también dentro del propio
-      runbook, para quien lo replique.</div>
+  
+
+  <section id="indice">
+    <h2>Contenido completo</h2>
+    <p class="sub">Todo el runbook está en esta página. Puedes leerlo aquí o imprimirlo a PDF.</p>
+    <nav class="idx"><a href="#runbook"><b>Guía general</b><span>Mapa, cronograma y las diez reglas</span></a>
+<a href="#f0"><b>Fase 0</b><span>La fuente única de verdad</span></a>
+<a href="#f1"><b>Fase 1</b><span>CV en varios formatos</span></a>
+<a href="#f2"><b>Fase 2</b><span>Cartas y LinkedIn</span></a>
+<a href="#f3"><b>Fase 3</b><span>Preparación de entrevista</span></a>
+<a href="#f4"><b>Fase 4</b><span>Postulación</span></a>
+<a href="#f5"><b>Fase 5</b><span>Proceso de contratación</span></a>
+<a href="#anexoa"><b>Anexo A</b><span>Recetas técnicas</span></a>
+<a href="#anexob"><b>Anexo B</b><span>Checklists</span></a></nav>
   </section>
 
+
+<section class="doc" id="runbook">
+  <div class="doc-head"><span class="tag">Guía general</span><h2>Mapa, cronograma y las diez reglas</h2></div>
+<p>Procedimiento estándar para montar, de punta a punta, el material y las herramientas de una búsqueda de trabajo seria: CV en varios formatos, presencia web, preparación de entrevistas, postulación y respuesta al proceso de contratación.</p>
+<p>Está escrito para alguien que <strong>usa terminal, Python y git</strong>. No explica qué es una terminal.</p>
+<hr>
+<h3>Por qué un sistema y no un archivo de Word</h3>
+<p>La búsqueda de empleo produce mucho más material del que parece: el CV tiene al menos tres versiones distintas que deben decir lo mismo, cada vacante pide una carta con otro énfasis, LinkedIn quiere el mismo contenido en otro formato, la entrevista exige tener respuestas listas, y si te seleccionan te piden veinte o treinta documentos en una semana.</p>
+<p>Hacerlo a mano tiene dos costos: <strong>se desincroniza</strong> (corriges una cifra en el CV en español y se te olvida en el inglés) y <strong>se vuelve lento justo cuando necesitas ser rápido</strong>.</p>
+<p>La idea central del sistema es una sola:</p>
+<blockquote><strong>Una fuente de datos. Muchos renderizados.</strong></blockquote>
+<p>Escribes tu experiencia una vez, en un solo archivo, y de ahí salen el CV diseñado, el CV para robots, el CV web, las cartas y el guion de LinkedIn. Corriges en un sitio y se propaga a todo.</p>
+<hr>
+<h3>Mapa de fases</h3>
+<div class="tw"><table><thead><tr><th>Fase</th><th>Archivo</th><th>Qué produce</th><th>Depende de</th></tr></thead><tbody><tr><td>0</td><td><code>01_datos_base.md</code></td><td>Tu fuente única de verdad</td><td>—</td></tr><tr><td>1</td><td><code>02_cv_multiformato.md</code></td><td>CV diseñado, CV ATS, CV web, foto</td><td>Fase 0</td></tr><tr><td>2</td><td><code>03_cartas_y_linkedin.md</code></td><td>Cartas por cargo/idioma, perfil LinkedIn</td><td>Fase 0</td></tr><tr><td>3</td><td><code>04_preparacion_entrevista.md</code></td><td>Guía de estudio, banco de preguntas, simulador</td><td>Fase 0</td></tr><tr><td>4</td><td><code>05_postulacion.md</code></td><td>Postulaciones enviadas + tabla de seguimiento</td><td>Fases 1 y 2</td></tr><tr><td>5</td><td><code>06_contratacion_documentos.md</code></td><td>Paquete documental listo para enviar</td><td>— (arranca cuando te seleccionan)</td></tr></tbody></table></div>
+<p>Anexos:</p>
+<ul><li><code>ANEXO_A_recetas_tecnicas.md</code> — las recetas que cuestan trabajo descubrir: comprimir PDFs sin arruinarlos, foto sin fondo, diligenciar formatos <code>.docx</code>, componer una firma.</li><li><code>ANEXO_B_checklists.md</code> — listas de verificación para usar el día de.</li></ul>
+<hr>
+<h3>Cronograma sugerido</h3>
+<p>No hagas todo a la vez. Este orden entrega valor desde el primer día:</p>
+<p><strong>Semana 1 — poder postular</strong></p>
+<ol><li>Fase 0 completa. Es la que más piensa y menos teclea. Sal de aquí con logros redactados con métrica.</li><li>Fase 1, solo la <strong>versión ATS</strong>. Es la que aceptan todos los portales.</li><li>Empieza a postular ya (Fase 4). No esperes a tenerlo todo bonito.</li></ol>
+<p><strong>Semana 2 — subir la tasa de respuesta</strong></p>
+<ol><li>Fase 1 completa: versión diseñada, CV web y foto.</li><li>Fase 2: cartas y LinkedIn. LinkedIn es donde te encuentran los reclutadores.</li></ol>
+<p><strong>Semana 3 en adelante — convertir entrevistas</strong></p>
+<ol><li>Fase 3, en paralelo con las postulaciones. Se construye por temas, no de un tirón.</li></ol>
+<p><strong>Cuando te seleccionen</strong></p>
+<ol><li>Fase 5. Suele venir con plazo de días, así que conviene haber leído el archivo antes de necesitarlo.</li></ol>
+<hr>
+<h3>Requisitos previos</h3>
+<pre><code class="lang-bash">python3 --version          # 3.9 o superior
+python3 -m pip install python-docx pillow numpy</code></pre>
+<div class="tw"><table><thead><tr><th>Herramienta</th><th>Para qué</th><th>Alternativa</th></tr></thead><tbody><tr><td><code>python-docx</code></td><td>Generar y diligenciar <code>.docx</code></td><td>—</td></tr><tr><td>LibreOffice</td><td>Convertir <code>docx → pdf</code> sin abrir Word</td><td>Exportar a PDF desde Word/Pages a mano</td></tr><tr><td>Pillow + numpy</td><td>Procesar la foto de perfil</td><td>Herramienta web de quitar fondo</td></tr><tr><td>git + cuenta GitHub</td><td>Publicar el CV web con Pages</td><td>Netlify, Vercel, o no publicar</td></tr><tr><td>Navegador con automatización</td><td>Llenar formularios largos</td><td>Llenarlos a mano con el guion delante</td></tr></tbody></table></div>
+<p>Conversión a PDF por línea de comandos:</p>
+<pre><code class="lang-bash">soffice --headless --convert-to pdf --outdir . CV_ATS_ES.docx</code></pre>
+<p>Si LibreOffice no está en el <code>PATH</code>, en macOS suele estar en <code>/Applications/LibreOffice.app/Contents/MacOS/soffice</code>.</p>
+<hr>
+<h3>Las 10 reglas del sistema</h3>
+<p>Estas reglas salieron de errores concretos. Cada una evita un problema real.</p>
+<p><strong>1. Nunca declares experiencia que el CV no respalde.</strong> Es la regla dura. Si una vacante pide una tecnología que no has operado, no la insinúes: prepara el guion honesto (está en la Fase 3). Inventar experiencia en una entrevista técnica se detecta en dos preguntas, y ahí pierdes la vacante y la credibilidad. Decir <em>&quot;no lo he usado en producción, pero conozco el modelo y estas son las equivalencias con lo que sí manejo&quot;</em> es una respuesta fuerte, no una debilidad.</p>
+<p><strong>2. Una fuente de verdad.</strong> Ningún dato de contenido se escribe dentro de un generador. Si tienes que corregir la misma cifra en dos archivos, el sistema está mal montado.</p>
+<p><strong>3. La versión ATS es un artefacto de primera clase.</strong> No es &quot;el CV feo&quot;. Es el que leen los filtros automáticos, y por lo tanto el que decide si un humano te ve. Se diseña aparte, con sus propias reglas.</p>
+<p><strong>4. Verifica el canal antes de enviar.</strong> Los correos institucionales publicados en las páginas oficiales se caen y nadie actualiza la web. Antes de mandar algo importante, confirma que la dirección existe. Si te rebota, llama y documenta la dirección vigente.</p>
+<p><strong>5. Separa lo que preparas de lo que solo tú puedes hacer.</strong> Las plataformas con sesión iniciada, los datos de identidad y el envío final son tuyos. Todo lo demás se puede preparar por adelantado. Cada guion de postulación debe terminar con una sección explícita de &quot;esto lo haces tú&quot;.</p>
+<p><strong>6. Conserva acuse de todo.</strong> Captura de pantalla del formulario enviado, copia del correo, número de radicado. Cuando un proceso se alarga tres meses, tu memoria no sirve como prueba.</p>
+<p><strong>7. Cada logro lleva una métrica.</strong> &quot;Mejoré el rendimiento&quot; no dice nada. &quot;Reduje el tiempo de respuesta un 40%&quot; sí. Si no tienes el número exacto, estima con honestidad y usa un orden de magnitud.</p>
+<p><strong>8. Verifica en el medio real.</strong> El CV se revisa en PDF, no en el editor. La web se revisa en el móvil, no solo en el escritorio. El documento comprimido se revisa abriéndolo, no mirando su tamaño.</p>
+<p><strong>9. Documenta lo que NO funcionó.</strong> Cuando un enfoque falla, escribe por qué. Ese es el conocimiento que no vuelves a construir. Los anexos de este runbook son, en su mayoría, callejones sin salida ya recorridos.</p>
+<p><strong>10. Empieza a postular antes de tenerlo perfecto.</strong> El sistema se mejora con las respuestas del mercado. Un CV ATS decente enviado hoy vale más que un sistema completo la semana entrante.</p>
+<hr>
+<h3>Estructura de trabajo recomendada</h3>
+<pre><code class="lang-">busqueda-empleo/
+  datos/
+    datos_base.py              # fuente única (Fase 0)
+    foto_original.jpg
+  generadores/                 # los scripts que escribes en las Fases 1 y 2
+  salidas/
+    CV_ATS_ES.{docx,pdf,txt}
+    CV_ATS_EN.{docx,pdf,txt}
+    CV_DISENADO_ES.{docx,pdf}
+    cartas/
+  entrevista/
+    guia.html                  # Fase 3
+  postulaciones/
+    seguimiento.md             # tabla de control (Fase 4)
+  procesos/                    # una carpeta por proceso de contratación (Fase 5)
+    &lt;proceso-1&gt;/
+      LISTA_DOCUMENTOS.md
+      documentos/
+      comprimido/</code></pre>
+<p>Dos advertencias sobre esta carpeta:</p>
+<ul><li><strong>No la subas a un repo público.</strong> Contiene tu documento de identidad, dirección y datos familiares. Si usas git, que sea un repo privado, y publica solo la carpeta del CV web.</li><li><strong>Separa el código de los documentos personales.</strong> Si algún día quieres compartir tus generadores, no querrás estar filtrando tu cédula del historial de git.</li></ul>
+<hr>
+<h3>Cómo usar este runbook</h3>
+<p>Cada archivo de fase tiene la misma estructura:</p>
+<ul><li><strong>Qué produce</strong> — el artefacto concreto al terminar.</li><li><strong>Procedimiento</strong> — los pasos.</li><li><strong>Verificación</strong> — cómo saber que quedó bien.</li><li><strong>Errores frecuentes</strong> — lo que sale mal y por qué.</li></ul>
+<p>Los marcadores <code>[ASÍ]</code> son tuyos para rellenar. Donde hacía falta un ejemplo, va uno neutro en cursiva.</p>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="f0">
+  <div class="doc-head"><span class="tag">Fase 0</span><h2>La fuente única de verdad</h2></div>
+<p><strong>Qué produce:</strong> un archivo <code>datos_base.py</code> con toda tu información profesional, bilingüe, del que salen todos los demás artefactos.</p>
+<p>Es la fase que menos código tiene y más determina el resultado. Si los logros están mal redactados aquí, van a estar mal en el CV, en la carta, en LinkedIn y en la entrevista.</p>
+<hr>
+<h3>El principio</h3>
+<p>Un módulo Python con diccionarios y listas. Sin dependencias, sin lógica. Cada campo con texto visible lleva las dos versiones de idioma:</p>
+<pre><code class="lang-python">{&quot;es&quot;: &quot;Líder Técnico&quot;, &quot;en&quot;: &quot;Technical Lead&quot;}</code></pre>
+<p>Y un helper que resuelve el idioma:</p>
+<pre><code class="lang-python">def t(data, lang=&quot;es&quot;):
+    &quot;&quot;&quot;Extrae el idioma de un dict bilingüe. Si no es dict, lo devuelve tal cual.&quot;&quot;&quot;
+    if isinstance(data, dict) and (&quot;es&quot; in data or &quot;en&quot; in data):
+        return data.get(lang, data.get(&quot;es&quot;, &quot;&quot;))
+    return data</code></pre>
+<p>Los nombres técnicos (Docker, PostgreSQL) <strong>no se traducen</strong>: van como cadena simple.</p>
+<p>Arranca copiando <code>plantillas/datos_base.py</code>, que ya trae el esquema completo con marcadores.</p>
+<hr>
+<h3>El esquema, campo por campo</h3>
+<h4><code>PERSONAL</code></h4>
+<pre><code class="lang-python">PERSONAL = {
+    &quot;name&quot;: &quot;[TU NOMBRE COMPLETO]&quot;,
+    &quot;title&quot;: {&quot;es&quot;: &quot;[TU TÍTULO PROFESIONAL]&quot;, &quot;en&quot;: &quot;[YOUR TITLE]&quot;},
+    &quot;location&quot;: &quot;[CIUDAD, PAÍS]&quot;,
+    &quot;phone&quot;: &quot;[+XX XXX XXX XXXX]&quot;,
+    &quot;email&quot;: &quot;[tu@correo.com]&quot;,
+    &quot;linkedin&quot;: &quot;[linkedin.com/in/tu-perfil]&quot;,
+}</code></pre>
+<p>El <strong>título</strong> es lo primero que lee un reclutador. Que sea el cargo al que aspiras, no necesariamente el que tienes. Si apuntas a varios roles, usa el patrón de barras: <em>&quot;Líder Técnico | Arquitecto de Soluciones | Backend&quot;</em> — cubre tres búsquedas distintas.</p>
+<h4><code>PROFILE</code></h4>
+<p>Un párrafo de 4 a 6 líneas por idioma. Se admite <code><strong>negrita</strong></code> estilo Markdown; los generadores lo convierten al formato de cada salida.</p>
+<p>Estructura que funciona: <strong>qué eres + años + dominio</strong> → <strong>el logro más grande, con cifra</strong> → <strong>stack principal</strong> → <strong>qué aportas</strong>.</p>
+<blockquote><em>Ej.: &quot;Ingeniero con [N] años en [DOMINIO], especializado en [ÁREA]. Lideré [PROYECTO GRANDE] logrando [MÉTRICA]. Manejo [3-4 TECNOLOGÍAS PRINCIPALES]. Combino [FORTALEZA A] con [FORTALEZA B].&quot;</em></blockquote>
+<h4><code>KEY_METRICS</code></h4>
+<p>Cuatro métricas para la barra de impacto de la cabecera. Son las cifras que quieres que se queden en la cabeza del que lee.</p>
+<pre><code class="lang-python">KEY_METRICS = {&quot;es&quot;: [
+    {&quot;value&quot;: &quot;[N]+&quot;,   &quot;label&quot;: &quot;[años de experiencia]&quot;},
+    {&quot;value&quot;: &quot;[N]&quot;,    &quot;label&quot;: &quot;[personas lideradas]&quot;},
+    {&quot;value&quot;: &quot;[N%]&quot;,   &quot;label&quot;: &quot;[mejora que lograste]&quot;},
+    {&quot;value&quot;: &quot;[N]&quot;,    &quot;label&quot;: &quot;[escala: usuarios, transacciones…]&quot;},
+], &quot;en&quot;: [ ... ]}</code></pre>
+<p>Cómo elegirlas: una de <strong>trayectoria</strong> (años), una de <strong>escala</strong> (equipo, usuarios, volumen), una de <strong>mejora</strong> (%, tiempo, costo) y una de <strong>alcance</strong> (proyectos, sistemas, países). Deben poder defenderse si te preguntan de dónde salen.</p>
+<h4><code>EXPERIENCE</code></h4>
+<pre><code class="lang-python">EXPERIENCE = [
+    {
+        &quot;company&quot;: &quot;[EMPRESA]&quot;,
+        &quot;period&quot;: {&quot;es&quot;: &quot;[AÑO] – Presente&quot;, &quot;en&quot;: &quot;[YEAR] – Present&quot;},
+        &quot;role&quot;: {&quot;es&quot;: &quot;[CARGO]&quot;, &quot;en&quot;: &quot;[ROLE]&quot;},
+        &quot;achievements&quot;: {
+            &quot;es&quot;: [&quot;[LOGRO 1]&quot;, &quot;[LOGRO 2]&quot;, &quot;[LOGRO 3]&quot;],
+            &quot;en&quot;: [&quot;[ACHIEVEMENT 1]&quot;, ...],
+        },
+    },
+    # de más reciente a más antiguo
+]</code></pre>
+<p><strong>Cómo redactar un logro.</strong> Esta es la parte que decide entrevistas. La fórmula:</p>
+<blockquote><strong>verbo de acción</strong> + <strong>qué hiciste</strong> + <strong>cómo o con qué</strong> + <strong>resultado medible</strong></blockquote>
+<div class="tw"><table><thead><tr><th>❌ Débil</th><th>✅ Fuerte</th></tr></thead><tbody><tr><td>&quot;Responsable del equipo de desarrollo&quot;</td><td>&quot;Lideré un equipo de [N] personas entregando [N] plataformas críticas&quot;</td></tr><tr><td>&quot;Trabajé con Kubernetes&quot;</td><td>&quot;Migré [N] servicios a [PLATAFORMA], logrando despliegues sin downtime&quot;</td></tr><tr><td>&quot;Mejoré el rendimiento&quot;</td><td>&quot;Reduje el tiempo de respuesta de [X] a [Y] bajo alta carga&quot;</td></tr><tr><td>&quot;Encargado de la calidad&quot;</td><td>&quot;Implanté [PRÁCTICA], bajando los defectos en producción un [N%]&quot;</td></tr></tbody></table></div>
+<p>Reglas prácticas:</p>
+<ul><li>Entre 3 y 5 logros por puesto. Más, nadie los lee.</li><li>El primero es el más fuerte.</li><li>Los puestos de hace más de 10 años se resumen o se agrupan en una entrada de &quot;experiencia previa&quot;.</li><li>Si no tienes la cifra exacta, estima con honestidad: <em>&quot;cerca de un 40%&quot;</em> es defendible; inventar un número preciso que no puedes sustentar, no.</li></ul>
+<h4><code>TECHNICAL_SKILLS</code></h4>
+<p>Lista de tuplas <code>(nombre, nivel)</code> con nivel de 1 a 5. <strong>No bilingüe.</strong></p>
+<pre><code class="lang-python">TECHNICAL_SKILLS = [
+    (&quot;[TECNOLOGÍA 1]&quot;, 5),
+    (&quot;[TECNOLOGÍA 2]&quot;, 4),
+]</code></pre>
+<p>Escala: <strong>5</strong> = lo defiendes en una entrevista técnica profunda · <strong>4</strong> = lo has usado en producción · <strong>3</strong> = lo has usado en proyectos · 1–2 <strong>no van en el CV</strong>.</p>
+<p>Sé honesto con el 5: es una invitación a que te pregunten a fondo.</p>
+<h4><code>EDUCATION</code>, <code>CERTIFICATIONS</code>, <code>LANGUAGES</code></h4>
+<pre><code class="lang-python">EDUCATION = {&quot;es&quot;: [{&quot;degree&quot;: &quot;[TÍTULO]&quot;, &quot;institution&quot;: &quot;[INSTITUCIÓN]&quot;, &quot;year&quot;: &quot;[AÑO]&quot;}], &quot;en&quot;: [...]}
+CERTIFICATIONS = {&quot;es&quot;: [{&quot;name&quot;: &quot;[CERTIFICACIÓN]&quot;, &quot;issuer&quot;: &quot;[EMISOR]&quot;}], &quot;en&quot;: [...]}
+LANGUAGES = {&quot;es&quot;: [(&quot;[IDIOMA]&quot;, &quot;[NIVEL]&quot;)], &quot;en&quot;: [...]}</code></pre>
+<p>Para idiomas usa el marco europeo (A1–C2) o etiquetas claras (Nativo, Avanzado). Si un título está en trámite, dilo: <em>&quot;[TÍTULO] (en trámite de grado)&quot;</em>. Se verifica, y que aparezca como terminado cuando no lo está es un problema en el estudio de seguridad (Fase 5).</p>
+<h4><code>CORE_KEYWORDS</code></h4>
+<p>Lista plana de términos para los filtros automáticos.</p>
+<pre><code class="lang-python">CORE_KEYWORDS = {&quot;es&quot;: [&quot;[CARGO]&quot;, &quot;[TECNOLOGÍA]&quot;, &quot;[METODOLOGÍA]&quot;, ...], &quot;en&quot;: [...]}</code></pre>
+<p>Cómo construirla: toma <strong>8 o 10 ofertas reales</strong> del puesto que buscas, extrae los términos que se repiten y quédate con los que puedas sustentar. Incluye variantes y siglas (<code>Kubernetes</code> y <code>K8s</code>, <code>CI/CD</code> e <code>Integración Continua</code>) porque los filtros hacen coincidencia literal.</p>
+<p>Entre 30 y 50 términos. No inventes: si el filtro te pasa por una palabra que no puedes defender, el problema aparece en la entrevista.</p>
+<h4><code>SECTION_TITLES</code></h4>
+<p>Los rótulos de las secciones, bilingües. Van en los datos y no en los generadores, para que los generadores queden sin una sola palabra de contenido.</p>
+<hr>
+<h3>Verificación</h3>
+<p>Antes de pasar a la Fase 1:</p>
+<pre><code class="lang-bash">python3 -c &quot;import datos_base; print(&#x27;sintaxis OK&#x27;)&quot;
+
+# comprobar que no falta ningún idioma
+python3 - &lt;&lt;&#x27;PY&#x27;
+import datos_base as d
+faltan = []
+for nombre in dir(d):
+    if nombre.startswith(&#x27;_&#x27;): continue
+    v = getattr(d, nombre)
+    if isinstance(v, dict) and (&#x27;es&#x27; in v or &#x27;en&#x27; in v):
+        if not v.get(&#x27;es&#x27;) or not v.get(&#x27;en&#x27;):
+            faltan.append(nombre)
+print(&quot;Campos incompletos:&quot;, faltan or &quot;ninguno&quot;)
+PY</code></pre>
+<p>Lista de control:</p>
+<ul class="check"><li>Todo campo bilingüe tiene sus dos idiomas</li><li>Ningún <code>[MARCADOR]</code> sin reemplazar</li><li>Cada logro tiene una cifra o un resultado concreto</li><li>Las 4 métricas de cabecera se pueden sustentar si te preguntan</li><li>Las keywords salen de ofertas reales, no de tu imaginación</li><li>Ningún nivel 5 que no puedas defender en profundidad</li></ul>
+<hr>
+<h3>Errores frecuentes</h3>
+<p><strong>Escribir el contenido en el generador.</strong> En cuanto un texto visible aparece dentro de un script, empieza la desincronización. Todo va en los datos.</p>
+<p><strong>Traducir literalmente.</strong> Los cargos y las certificaciones tienen nombre propio en cada mercado. No es traducción, es adaptación.</p>
+<p><strong>Logros sin métrica.</strong> Es el problema más común y el más costoso. Si no puedes medir un logro, replantéalo hasta encontrar el ángulo medible.</p>
+<p><strong>Listar todo lo que has tocado.</strong> Un CV con 40 tecnologías no dice &quot;sé mucho&quot;, dice &quot;no sé qué es importante&quot;. Deja las que quieres que te pregunten.</p>
+<hr>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="f1">
+  <div class="doc-head"><span class="tag">Fase 1</span><h2>CV en varios formatos</h2></div>
+<p><strong>Qué produce:</strong> cuatro artefactos desde los mismos datos — CV ATS, CV diseñado, CV web y foto de perfil.</p>
+<hr>
+<h3>Por qué tres CV y no uno</h3>
+<p>No es vanidad. Cada versión la lee algo distinto y las tres son incompatibles entre sí.</p>
+<div class="tw"><table><thead><tr><th>Versión</th><th>Quién la lee</th><th>Regla de oro</th></tr></thead><tbody><tr><td><strong>ATS</strong></td><td>Un filtro automático</td><td>Una columna, sin tablas, sin iconos, sin cajas de texto</td></tr><tr><td><strong>Diseñada</strong></td><td>Una persona, en pantalla o impreso</td><td>Que se entienda en 20 segundos</td></tr><tr><td><strong>Web</strong></td><td>Reclutador que llega por el enlace</td><td>Que cargue rápido y se vea bien en móvil</td></tr></tbody></table></div>
+<p><strong>El error más caro de esta fase</strong> es mandar la versión diseñada a un portal con filtro automático. Los parsers no entienden columnas: leen la página de izquierda a derecha y te mezclan la columna de habilidades con la de experiencia. Tu CV bonito llega como un revoltijo y quedas fuera sin que un humano te haya visto.</p>
+<p>Regla práctica: <strong>portal o formulario → ATS. Correo a una persona → diseñada. Firma y perfiles → web.</strong></p>
+<hr>
+<h3>1. Versión ATS (empieza por esta)</h3>
+<p>La que te permite postular desde el primer día.</p>
+<h4>Restricciones duras</h4>
+<ul><li><strong>Una sola columna.</strong> Nada de layout en paralelo.</li><li><strong>Sin tablas.</strong> Ni siquiera invisibles para maquetar.</li><li><strong>Sin iconos, emojis ni glifos</strong> decorativos. Un teléfono se marca con la palabra &quot;Teléfono&quot;.</li><li><strong>Fuente estándar</strong>: Arial, Calibri o Times New Roman.</li><li><strong>Sin encabezado ni pie de página</strong>: muchos parsers los ignoran, y ahí suele ir el contacto.</li><li><strong>Sin imágenes</strong>, foto incluida.</li><li><strong>Fechas en formato consistente</strong>: <code>MM/AAAA – MM/AAAA</code> o <code>AAAA – AAAA</code>, siempre igual.</li><li>Los títulos de sección, con los nombres que espera el parser: <em>Experiencia Profesional</em>, <em>Formación Académica</em>, <em>Competencias Técnicas</em>.</li></ul>
+<h4>Generación</h4>
+<p>Un script <code>generar_cv_ats.py</code> que lee <code>datos_base.py</code> y produce dos salidas por idioma:</p>
+<ul><li><strong><code>.docx</code></strong> con <code>python-docx</code>: párrafos planos, sin tablas.</li><li><strong><code>.txt</code></strong> plano UTF-8: encabezados en mayúsculas subrayados con <code>===</code>, viñetas con <code>- </code>. Sirve para pegar en formularios que piden el CV en texto.</li></ul>
+<p>Funciones auxiliares que vas a necesitar:</p>
+<pre><code class="lang-python">def strip_md(texto):
+    &quot;&quot;&quot;Quita el **negrita** de los datos: el ATS no lo necesita.&quot;&quot;&quot;
+    return texto.replace(&quot;**&quot;, &quot;&quot;)
+
+def nivel_a_texto(n):
+    &quot;&quot;&quot;El nivel numérico no le dice nada a un parser; la palabra sí.&quot;&quot;&quot;
+    return {5: &quot;Experto&quot;, 4: &quot;Avanzado&quot;, 3: &quot;Intermedio&quot;}.get(n, &quot;Básico&quot;)
+
+def normalizar_periodo(periodo, lang):
+    &quot;&quot;&quot;Evita que quede &#x27;Presente / Present&#x27; en la misma línea.&quot;&quot;&quot;
+    return t(periodo, lang)</code></pre>
+<p>El PDF <strong>no se genera con Python</strong>: se convierte el <code>.docx</code>, así el PDF conserva la estructura de texto que el parser necesita.</p>
+<pre><code class="lang-bash">soffice --headless --convert-to pdf --outdir salidas salidas/CV_ATS_ES.docx</code></pre>
+<h4>Verificación</h4>
+<p>La prueba real, que además es gratis: <strong>copia el texto del PDF y pégalo en un editor plano</strong>.</p>
+<pre><code class="lang-bash"># si tienes pdftotext (poppler)
+pdftotext -layout salidas/CV_ATS_ES.pdf - | head -50</code></pre>
+<p>Si lo que sale está en orden y completo, el parser lo va a leer bien. Si aparece desordenado o faltan trozos, tu CV está roto para un ATS aunque se vea perfecto en pantalla.</p>
+<ul class="check"><li>El texto extraído mantiene el orden lógico</li><li>Nombre, teléfono y correo aparecen en las primeras líneas</li><li>No hay caracteres raros donde iban viñetas</li><li>Las fechas se leen completas</li><li>Cabe en 2 páginas (3 si tienes más de 15 años de trayectoria)</li></ul>
+<hr>
+<h3>2. Versión diseñada</h3>
+<p>Para cuando hay una persona del otro lado: un correo directo, una recomendación, una entrevista impresa.</p>
+<p>Estructura que funciona:</p>
+<pre><code class="lang-">┌──────────────────────────────────────────┐
+│  NOMBRE          Título profesional      │  ← cabecera, opcionalmente con foto
+│  contacto · correo · ciudad · linkedin   │
+├──────────────────────────────────────────┤
+│  PERFIL  (párrafo con fondo suave)       │
+├──────────────────────────────────────────┤
+│  [N]+ años  │ [N] equipo │ [N]% mejora   │  ← barra de métricas
+├──────────────────────────────────────────┤
+│  COMPETENCIAS CLAVE (chips de keywords)  │
+├──────────────────────────────────────────┤
+│  EXPERIENCIA  (una columna, completa)    │
+├─────────────────────┬────────────────────┤
+│  Proyectos          │  Habilidades       │  ← dos columnas solo abajo
+│  Educación          │  Idiomas           │
+└─────────────────────┴────────────────────┘</code></pre>
+<p>Las dos columnas van <strong>solo en el bloque inferior</strong>, con la experiencia a ancho completo. Se implementan con una tabla sin bordes.</p>
+<h4>Separar estilo de contenido</h4>
+<p>Un módulo <code>estilos.py</code> con tokens y componentes, <strong>sin una sola palabra de contenido</strong>:</p>
+<pre><code class="lang-python"># tokens
+COLOR_PRIMARIO = &quot;1F3355&quot;
+COLOR_ACENTO   = &quot;0A7FBD&quot;
+FUENTE_TITULO  = &quot;Calibri&quot;
+FUENTE_CUERPO  = &quot;Calibri&quot;
+
+# componentes
+def add_section_header(doc, texto): ...
+def add_experience_entry(doc, empresa, periodo, cargo, logros): ...
+def add_metrics_bar(doc, metricas): ...
+def add_skill_bar(doc, nombre, nivel): ...</code></pre>
+<p>Con <code>python-docx</code> hay cosas que solo se pueden hacer tocando el XML (sombreado de celda, quitar bordes de tabla, márgenes internos). Se resuelven con <code>docx.oxml</code>:</p>
+<pre><code class="lang-python">from docx.oxml.ns import qn
+from docx.oxml import parse_xml
+
+def sombrear_celda(celda, hex_color):
+    celda._tc.get_or_add_tcPr().append(
+        parse_xml(f&#x27;&lt;w:shd {{}} w:fill=&quot;{hex_color}&quot;/&gt;&#x27;.format(
+            &#x27;xmlns:w=&quot;http://schemas.openxmlformats.org/wordprocessingml/2006/main&quot;&#x27;))
+    )</code></pre>
+<h4>Verificación</h4>
+<ul class="check"><li>Se lee bien <strong>en PDF</strong>, no solo en Word (las fuentes cambian al convertir)</li><li>Impreso en blanco y negro sigue siendo legible</li><li>Máximo 2 páginas</li><li>Ningún texto cortado ni columna desbordada</li></ul>
+<hr>
+<h3>3. Versión web</h3>
+<p>Un <code>index.html</code> autocontenido: CSS y JS embebidos, sin dependencias externas. Se publica en GitHub Pages y el enlace va en la firma del correo, en LinkedIn y en el propio CV.</p>
+<p>Características que valen la pena:</p>
+<ul><li><strong>Los dos idiomas en el mismo archivo</strong>, con un botón que alterna. Dos <code>&lt;article&gt;</code>, uno oculto, y el estado guardado en <code>localStorage</code>.</li><li><strong>Botón de descarga</strong> que apunta al PDF del idioma activo.</li><li><strong>Responsive de verdad</strong>: la mitad de los reclutadores lo abren en el móvil.</li><li><strong><code>@media print</code></strong> para que imprimirlo desde el navegador dé un documento decente.</li><li><strong><code>prefers-color-scheme</code></strong> para modo oscuro.</li></ul>
+<p>Un generador <code>generar_cv_html.py</code> con solo la librería estándar:</p>
+<pre><code class="lang-python">import html
+
+def esc(s):
+    return html.escape(str(s))
+
+def rich(s):
+    &quot;&quot;&quot;Escapa y convierte **negrita** en &lt;strong&gt;.&quot;&quot;&quot;
+    import re
+    return re.sub(r&quot;\*\*(.+?)\*\*&quot;, r&quot;&lt;strong&gt;\1&lt;/strong&gt;&quot;, html.escape(str(s)))</code></pre>
+<p>Publicación:</p>
+<pre><code class="lang-bash">cd cv-web
+git add index.html &amp;&amp; git commit -m &quot;docs: actualiza CV&quot; &amp;&amp; git push
+# Settings → Pages → rama main → queda en https://&lt;usuario&gt;.github.io/&lt;repo&gt;/</code></pre>
+<p>Verificación en vivo (Pages tarda 1–3 minutos y el navegador cachea):</p>
+<pre><code class="lang-bash">curl -s -H &#x27;Cache-Control: no-cache&#x27; &quot;https://&lt;usuario&gt;.github.io/&lt;repo&gt;/?v=$RANDOM&quot; | grep -o &quot;&lt;title&gt;.*&lt;/title&gt;&quot;</code></pre>
+<h4>Verificación</h4>
+<ul class="check"><li>Abre bien en móvil (prueba con el móvil real, no solo redimensionando)</li><li>El botón de idioma alterna y persiste al recargar</li><li>El botón de descarga apunta al PDF correcto en cada idioma</li><li>Sin scroll horizontal en pantalla estrecha</li><li>Funciona sin conexión (no debe cargar nada externo)</li></ul>
+<hr>
+<h3>4. Foto de perfil</h3>
+<p>No siempre hace falta, pero cuando la piden conviene tenerla resuelta. La receta técnica completa está en <code>ANEXO_A</code>, receta 3.</p>
+<p>Lo esencial:</p>
+<ul><li>Fondo neutro y uniforme (azul o gris claro son las apuestas seguras).</li><li>Encuadre de pecho hacia arriba, mirando a cámara.</li><li>Ten a mano una versión <strong>3×4 tipo carné</strong>: varios formatos oficiales la piden.</li><li>Si le cambias el fondo, revisa el borde del pelo. Es donde se nota el recorte.</li></ul>
+<hr>
+<h3>Errores frecuentes</h3>
+<p><strong>Mandar la versión diseñada a un portal.</strong> Ya explicado arriba: es el error que más entrevistas cuesta.</p>
+<p><strong>Regenerar solo un idioma.</strong> Cuando cambies los datos, regenera las seis salidas de un tirón. Si no, tarde o temprano mandas la versión vieja.</p>
+<p><strong>Confiar en que el PDF se ve igual que el Word.</strong> Al convertir cambian fuentes y saltos de página. Revisa siempre el PDF, que es lo que envías.</p>
+<p><strong>Foto informal o antigua.</strong> Una foto recortada de una foto social se nota, y juega en contra.</p>
+<p><strong>Enlazar un CV web con enlaces rotos.</strong> Si el PDF que enlaza la web no existe o quedó desactualizado, es peor que no tener web.</p>
+<hr>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="f2">
+  <div class="doc-head"><span class="tag">Fase 2</span><h2>Cartas y LinkedIn</h2></div>
+<p><strong>Qué produce:</strong> cartas de motivación en variantes por cargo e idioma, y el contenido de tu perfil de LinkedIn listo para pegar campo por campo.</p>
+<hr>
+<h3>Parte 1 — La carta como datos, no como documento</h3>
+<p>Si escribes cada carta desde cero, pasa una de dos cosas: dejas de mandarlas, o mandas siempre la misma carta genérica que no dice nada.</p>
+<p>La solución es tratarla igual que el CV: <strong>contenido estructurado + renderizado</strong>.</p>
+<h4>Variantes por cargo</h4>
+<p>La misma trayectoria se cuenta distinto según a qué apuntes. <strong>Los hechos y las cifras no cambian nunca; cambia qué se pone primero.</strong></p>
+<blockquote>Ejemplo con un perfil que ha liderado equipos y también construido software: - Para una vacante de <strong>liderazgo</strong>: abre con el tamaño del equipo y los resultados de entrega. - Para una vacante de <strong>arquitectura</strong>: abre con las decisiones de diseño y sus efectos medibles. - Para una vacante <strong>generalista</strong>: abre con la combinación de ambas. En los tres casos el proyecto es el mismo y la métrica es la misma. Solo cambia el orden y el énfasis.</blockquote>
+<p>Estructura de datos:</p>
+<pre><code class="lang-javascript">const CARTAS = {
+  liderazgo: {
+    es: { cargo: &quot;[CARGO]&quot;, parrafos: [&quot;[P1]&quot;, &quot;[P2]&quot;, &quot;[P3]&quot;] },
+    en: { cargo: &quot;[ROLE]&quot;,  parrafos: [&quot;[P1]&quot;, &quot;[P2]&quot;, &quot;[P3]&quot;] },
+  },
+  arquitectura: { es: {...}, en: {...} },
+  general:      { es: {...}, en: {...} },
+};</code></pre>
+<h4>Anatomía de la carta</h4>
+<p>Cuatro párrafos, nunca más de una página:</p>
+<ol><li><strong>Por qué esta empresa</strong> — algo concreto de ellos. Si no puedes decir nada específico, la carta no aporta y es mejor no mandarla.</li><li><strong>Qué te hace encajar</strong> — 2 o 3 logros de tu CV, con la cifra, elegidos por relevancia para <em>esa</em> vacante.</li><li><strong>Qué aportas</strong> — traduce tu experiencia al problema que ellos tienen.</li><li><strong>Cierre</strong> — disponibilidad y una llamada a la acción breve.</li></ol>
+<h4>Renderizado</h4>
+<p>Lo más práctico es una página HTML con dos grupos de botones (variante e idioma) que re-renderiza al vuelo, guarda la elección en <code>localStorage</code> y trae <code>@media print</code> con márgenes para imprimir a PDF.</p>
+<pre><code class="lang-css">@page { margin: 16mm; }
+@media print { .controles { display: none; } }</code></pre>
+<p>Genera también una versión <code>.txt</code> plana de cada combinación, con encabezado simple (nombre / cargo / contacto), para los formularios que piden pegar la carta como texto.</p>
+<h4>Verificación</h4>
+<ul class="check"><li>Cada variante menciona algo específico de la empresa (o queda claro dónde personalizarlo)</li><li>Las cifras coinciden <strong>exactamente</strong> con las del CV</li><li>Cabe en una página al imprimir</li><li>La versión <code>.txt</code> no tiene caracteres raros</li></ul>
+<hr>
+<h3>Parte 2 — LinkedIn como manual de copiar y pegar</h3>
+<p>LinkedIn no es un documento que se lee: es un formulario que se llena. Así que el entregable de esta parte no es un texto bonito, sino <strong>un bloque listo para pegar en cada campo</strong>, con la instrucción de dónde va.</p>
+<p>Por qué importa: es donde te encuentran. Un CV excelente sin LinkedIn optimizado solo sirve cuando tú postulas; con LinkedIn optimizado, te buscan.</p>
+<h4>Campos, en orden de impacto</h4>
+<p><strong>1. Titular (headline) — 220 caracteres.</strong> Lo que más pesa en las búsquedas de reclutadores. No pongas solo tu cargo actual: pon los cargos que buscas, separados por barras, más una especialidad.</p>
+<blockquote><em>Ej.: &quot;[Cargo objetivo] | [Cargo alterno] | [Especialidad] | [Tecnología clave]&quot;</em></blockquote>
+<p><strong>2. Acerca de (about).</strong> Mismo contenido que el perfil del CV, pero en primera persona y con saltos de línea (LinkedIn corta a las 3 primeras líneas, así que lo importante va arriba). Cierra con una línea de contacto.</p>
+<p><strong>3. Experiencia.</strong> Los mismos logros del CV. Aquí sí puedes extenderte un poco más que en el papel.</p>
+<p><strong>4. Aptitudes (skills) — hasta 50.</strong> Ordénalas por relevancia: las 3 primeras son las que se muestran. Deben coincidir con tus <code>CORE_KEYWORDS</code>, porque los reclutadores filtran por ellas.</p>
+<p><strong>5. Configuración que la gente olvida:</strong></p>
+<ul class="check"><li>URL personalizada (<code>linkedin.com/in/tu-nombre</code>, no el número por defecto)</li><li>&quot;Open to work&quot; configurado — visible solo para reclutadores si sigues empleado</li><li>Perfil en el idioma secundario (LinkedIn permite versiones por idioma)</li><li>Foto y banner</li><li>Sección &quot;Destacado&quot; con el enlace a tu CV web</li></ul>
+<h4>Formato del entregable</h4>
+<p>Un documento donde cada sección es:</p>
+<pre><code class="lang-">━━━ TITULAR ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[texto exacto listo para pegar]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dónde: Perfil → Editar introducción → Titular
+Límite: 220 caracteres (el tuyo usa [N])</code></pre>
+<p>La clave es que quien lo use no tenga que decidir nada: abrir, copiar, pegar, siguiente.</p>
+<h4>Verificación</h4>
+<ul class="check"><li>El titular está por debajo de 220 caracteres</li><li>Las 3 primeras líneas del &quot;Acerca de&quot; funcionan solas (es lo que se ve sin desplegar)</li><li>Las aptitudes coinciden con las keywords del CV</li><li>La URL está personalizada</li><li>Las fechas de experiencia coinciden con el CV — <strong>esto se verifica en el estudio de seguridad</strong></li></ul>
+<hr>
+<h3>Errores frecuentes</h3>
+<p><strong>Cartas genéricas.</strong> Una carta que sirve para cualquier empresa no aporta nada. O la personalizas o no la mandas.</p>
+<p><strong>Inflar en LinkedIn lo que el CV dice distinto.</strong> Las fechas y los cargos se cruzan en la verificación de antecedentes (Fase 5). Cualquier diferencia hay que poder explicarla.</p>
+<p><strong>Dejar el perfil solo en un idioma</strong> cuando buscas en dos mercados.</p>
+<p><strong>Poner &quot;Open to work&quot; en público estando empleado.</strong> Tu empleador actual lo ve.</p>
+<p><strong>Que el CV web enlazado desde LinkedIn esté desactualizado.</strong> Si lo enlazas, mantenlo.</p>
+<hr>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="f3">
+  <div class="doc-head"><span class="tag">Fase 3</span><h2>Preparación de entrevista</h2></div>
+<p><strong>Qué produce:</strong> una guía de estudio propia, un glosario de tu CV, un banco de preguntas con respuestas trabajadas y un simulador cronometrado.</p>
+<p>Esta fase se construye <strong>por temas y en paralelo con las postulaciones</strong>, no de un tirón. Un tema por sesión, empezando por lo que más aparece en las ofertas a las que aplicas.</p>
+<hr>
+<h3>El diagnóstico que ahorra tiempo</h3>
+<p>La mayoría de las entrevistas técnicas no se pierden por no saber, sino por <strong>no saber contarlo</strong>. Se sabe hacer el trabajo, pero al explicarlo en voz alta bajo presión sale desordenado, sin cifras y sin la palabra que el entrevistador espera oír.</p>
+<p>Por eso el objetivo de esta fase no es aprender tecnología nueva: es <strong>convertir lo que ya sabes en frases que puedes decir</strong>.</p>
+<hr>
+<h3>1. El formato: un solo archivo HTML</h3>
+<p>Un <code>guia.html</code> autocontenido, sin dependencias, que abres en el móvil. Suena rudimentario y es justamente la ventaja: funciona sin conexión, en la sala de espera, cinco minutos antes.</p>
+<p>Componentes que valen la pena, en orden de utilidad:</p>
+<div class="tw"><table><thead><tr><th>Componente</th><th>Para qué</th></tr></thead><tbody><tr><td><strong>Chuleta</strong></td><td>Lo que repasas en el ascensor: pitch de 20 s y tus 4 métricas</td></tr><tr><td><strong>Cursos por tema</strong></td><td>El material de estudio</td></tr><tr><td><strong>Glosario de tu CV</strong></td><td>Que ninguna palabra que escribiste te sorprenda</td></tr><tr><td><strong>Banco de preguntas</strong></td><td>Respuestas ya trabajadas</td></tr><tr><td><strong>Simulador</strong></td><td>Practicar con cronómetro</td></tr></tbody></table></div>
+<hr>
+<h3>2. El patrón de un tema</h3>
+<p>Cada tema sigue <strong>siempre la misma estructura</strong>. La repetición es deliberada: cuando todos los temas se leen igual, estudiar es más rápido y se nota enseguida lo que falta.</p>
+<pre><code class="lang-">1. Una frase de para qué sirve esta pieza
+2. Analogía cotidiana        ← lo que te salva cuando te piden explicárselo a alguien de negocio
+3. Los conceptos que debes distinguir   (tarjetas: nombre + rol en una frase + definición)
+4. Cómo funciona / cómo se despliega    (bloque de código o diagrama)
+5. El dato que demuestra profundidad    ← el detalle que separa a quien lo usó de quien lo leyó
+6. &quot;Cómo lo cuentas tú&quot;                 ← frase en primera persona, CON MÉTRICA
+7. Preguntas típicas del tema           (pregunta plegable + respuesta modelo)</code></pre>
+<p><strong>El punto 6 es el que importa.</strong> Todo tema termina en una frase que puedes decir tal cual:</p>
+<blockquote><em>&quot;Diseñé [QUÉ] con [TECNOLOGÍA]: [DECISIÓN TÉCNICA] y [OTRA DECISIÓN], logrando [MÉTRICA].&quot;</em></blockquote>
+<p>Si no puedes escribir esa frase para un tema, es que no lo dominas todavía — o que no tienes experiencia real en él, que es información igual de útil.</p>
+<hr>
+<h3>3. El glosario de tu propio CV</h3>
+<p>Sencillo y muy rentable: <strong>toma cada término técnico que escribiste en tu CV y escribe una frase que lo explique</strong>.</p>
+<pre><code class="lang-">[TÉRMINO DEL CV]  →  [una frase clara de qué es y por qué lo usaste]</code></pre>
+<p>Objetivo declarado: que no exista ni una palabra en tu CV que, si te la preguntan, te haga dudar. Es donde más se cae la gente: mencionan una tecnología en el CV porque la tocaron una vez, y no pueden sostener dos preguntas sobre ella.</p>
+<p>Si al escribir el glosario descubres que no puedes explicar algo → <strong>quítalo del CV o baja su nivel</strong>.</p>
+<hr>
+<h3>4. Banco de preguntas</h3>
+<p>Preguntas plegables con respuesta modelo, agrupadas por bloque:</p>
+<ul><li>Encaje y motivación (cuéntame de ti, por qué esta empresa, por qué cambias)</li><li>Liderazgo y equipo, con método STAR</li><li>Técnicas por tecnología</li><li>Arquitectura y diseño de sistemas</li><li>Clásicas de RR.HH. (debilidad, dónde te ves, expectativa salarial)</li><li><strong>Preguntas que TÚ haces al final</strong> — se olvidan y pesan</li></ul>
+<h4>El método STAR y las 3 historias</h4>
+<p>Para las preguntas de comportamiento: <strong>S</strong>ituación → <strong>T</strong>area → <strong>A</strong>cción (lo que hiciste tú) → <strong>R</strong>esultado (medible).</p>
+<p>El truco que ahorra trabajo: <strong>prepara 3 historias fuertes</strong> y comprueba que con ellas puedes responder casi cualquier pregunta de comportamiento. Un proyecto difícil que sacaste adelante, una situación de conflicto o presión, y un caso donde aprendiste de un error. Con esas tres cubres el 80%.</p>
+<h4>El guion honesto para lo que no dominas</h4>
+<p>Esto merece su propia sección porque es donde más gente se estrella.</p>
+<p>Cuando pregunten por una tecnología que no has usado en producción, la respuesta que funciona es:</p>
+<blockquote><em>&quot;En producción trabajo con [LO QUE SÍ USAS]. [LO QUE PREGUNTAN] no lo he operado en un proyecto real, pero conozco su modelo: [2 o 3 conceptos con sus equivalencias]. Como el grueso del trabajo es [FUNDAMENTOS COMPARTIDOS], la curva es corta.&quot;</em></blockquote>
+<p>Funciona porque demuestra tres cosas a la vez: honestidad, que entiendes el fondo y no solo la marca, y capacidad de aprender. <strong>Inventar experiencia se detecta en dos preguntas</strong> — basta con que te pregunten por un detalle operativo, un error típico o el precio.</p>
+<h4>La técnica de homologación</h4>
+<p>Cuando una vacante pide un stack que no manejas pero es análogo a uno que sí:</p>
+<ol><li>Haz una <strong>tabla de equivalencias</strong> entre lo que sabes y lo que piden.</li><li>Identifica las <strong>3 o 4 diferencias reales</strong> (no de nombre, sino de concepto). Esas son las que demuestran que entendiste.</li><li>Prepara un <strong>ejemplo lado a lado</strong>: el mismo procedimiento en ambos, para mostrar qué es portable.</li></ol>
+<p>En una semana pasas de &quot;no lo conozco&quot; a poder sostener una conversación técnica con honestidad. No te convierte en experto y no debes presentarlo como tal, pero evita que te descarten por vocabulario.</p>
+<hr>
+<h3>5. Simulador</h3>
+<p>Una mini-app en JS, sin backend, dentro del mismo HTML. Practicar con cronómetro cambia el resultado: responder en frío es muy distinto a leer la respuesta.</p>
+<p>Esquema de cada pregunta:</p>
+<pre><code class="lang-javascript">{
+  cat:   &quot;[categoría]&quot;,
+  q:     &quot;[la pregunta]&quot;,
+  hint:  &quot;[pista de por dónde arrancar]&quot;,
+  good:  &quot;[qué suma en la respuesta]&quot;,
+  watch: &quot;[qué te van a cuestionar]&quot;,
+  level: &quot;[cómo subir el nivel]&quot;,
+  model: &quot;[respuesta modelo]&quot;,
+  sets:  [&quot;all&quot;, &quot;tech&quot;],     // para filtrar por tipo de práctica
+  time:  120                   // segundos sugeridos
+}</code></pre>
+<p>Flujo: eliges el set → aparece la pregunta con el <strong>cronómetro corriendo</strong> y un campo para esbozar la respuesta → &quot;Ver evaluación&quot; revela la rúbrica de 3 criterios (suma / te cuestionan / cómo subir) y la respuesta modelo → siguiente.</p>
+<p>Conjuntos útiles: <code>completo</code>, <code>rápido</code> (5 preguntas), <code>técnico</code>, <code>diseño de sistemas</code>, <code>liderazgo</code>.</p>
+<p>Arranca con <code>plantillas/banco_preguntas.md</code>, que trae las categorías y las preguntas más frecuentes con la respuesta en blanco.</p>
+<hr>
+<h3>6. Assessments</h3>
+<p>Muchos procesos incluyen pruebas más allá de la entrevista. Conviene tener una sección por tipo:</p>
+<ul><li><strong>Diseño de sistemas</strong> — con un método repetible: aclarar requisitos → estimar → diseño de alto nivel → profundizar en 1 o 2 componentes → cuellos de botella y trade-offs. No buscan la respuesta correcta, buscan cómo piensas.</li><li><strong>Prueba de código</strong> (en vivo o para casa) — practica hablando mientras programas.</li><li><strong>Psicométricos</strong> — no se estudian, pero saber qué miden baja la ansiedad.</li><li><strong>Assessment center</strong> — dinámicas de grupo, role-play.</li></ul>
+<hr>
+<h3>Verificación</h3>
+<ul class="check"><li>Puedes decir tu pitch de 30 segundos sin leerlo, terminando con una cifra</li><li>Cada término de tu CV está en el glosario</li><li>Tienes 3 historias STAR que cubren la mayoría de preguntas de comportamiento</li><li>Cada tema termina en una frase en primera persona con métrica</li><li>Tienes preparado el guion honesto para las tecnologías que no dominas</li><li>Tienes 3 preguntas para hacerle tú al entrevistador</li><li>La guía abre y se lee bien <strong>en el móvil</strong></li></ul>
+<hr>
+<h3>Errores frecuentes</h3>
+<p><strong>Estudiar tecnología en vez de practicar la respuesta.</strong> Sabes más de lo que crees; lo que falla es contarlo.</p>
+<p><strong>No practicar en voz alta.</strong> Leer la respuesta y decirla son habilidades distintas. La primera vez que digas algo no debería ser en la entrevista.</p>
+<p><strong>Respuestas sin cifras.</strong> Vale para la entrevista igual que para el CV.</p>
+<p><strong>No preparar preguntas para el final.</strong> &quot;No, ninguna&quot; es una mala respuesta: parece desinterés.</p>
+<p><strong>Preparar solo lo técnico.</strong> Muchos procesos se caen en la conversación de RR.HH. o en la expectativa salarial, no en la parte técnica.</p>
+<hr>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="f4">
+  <div class="doc-head"><span class="tag">Fase 4</span><h2>Postulación</h2></div>
+<p><strong>Qué produce:</strong> postulaciones enviadas y una tabla de seguimiento que te dice qué hacer cada día.</p>
+<hr>
+<h3>Los canales, por tasa de respuesta</h3>
+<p>De mayor a menor efectividad real:</p>
+<div class="tw"><table><thead><tr><th>Canal</th><th>Comentario</th></tr></thead><tbody><tr><td><strong>Referido interno</strong></td><td>Con diferencia el mejor. Vale más un mensaje a un conocido que 20 postulaciones a ciegas</td></tr><tr><td><strong>Reclutador que te contacta</strong></td><td>Ya te quiere; solo hay que no arruinarlo</td></tr><tr><td><strong>Portal de la propia empresa</strong></td><td>Mejor que los agregadores: menos competencia y llega directo</td></tr><tr><td><strong>LinkedIn / agregadores</strong></td><td>Volumen alto, respuesta baja. Sirve para descubrir vacantes, no tanto para aplicar</td></tr><tr><td><strong>Convocatorias públicas</strong></td><td>Procesos largos y formales, pero muy predecibles y con reglas claras</td></tr></tbody></table></div>
+<p><strong>Consecuencia práctica:</strong> antes de aplicar en frío, revisa si conoces a alguien en la empresa. Diez minutos en LinkedIn cambian tus probabilidades más que veinte formularios.</p>
+<hr>
+<h3>Formularios largos: el método asistido</h3>
+<p>Los portales corporativos piden entre 40 y 80 campos, casi todos datos que ya tienes. Llenarlos a mano es lento y propenso a errores.</p>
+<p>Con cualquier herramienta de automatización de navegador —las hay integradas en asistentes de IA, y están Playwright o Selenium si prefieres escribirlo tú— <strong>el ciclo es siempre el mismo</strong>, y es lo que importa recordar. Los ejemplos usan una CLI genérica; traduce los verbos a tu herramienta:</p>
+<pre><code class="lang-bash"># 1. Ver qué hay en la página (árbol de accesibilidad con referencias)
+agent-browser snapshot -i
+
+# 2. Ubicar el campo que buscas
+agent-browser snapshot -i | grep -iE &quot;textbox|combobox|Dirección|Teléfono&quot;
+
+# 3. Actuar por referencia
+agent-browser fill @e44 &quot;[VALOR]&quot;
+agent-browser click @e55
+agent-browser check @e51
+
+# 4. Verificar
+agent-browser is checked @e51
+agent-browser screenshot /tmp/paso1.png</code></pre>
+<h4>Trampas reales</h4>
+<p>Estas cuestan tiempo la primera vez:</p>
+<ul><li><strong>Los desplegables hay que abrirlos antes de poder leer sus opciones.</strong> El snapshot no muestra las opciones de un <code>select</code> cerrado: primero <code>click</code>, luego <code>snapshot | grep</code>, y ahí sí eliges.</li><li><strong>Deja pausas entre acciones.</strong> Un <code>sleep 1</code> tras cada clic. Las SPA re-renderizan y las referencias <code>@eNN</code> cambian.</li><li><strong>Verifica los checkboxes</strong>, no asumas. <code>is checked</code> existe por algo, sobre todo en los de aceptación de términos.</li><li><strong>Las referencias caducan.</strong> Si la página cambió, vuelve a hacer <code>snapshot</code>.</li><li><strong>Captura de pantalla en cada paso importante.</strong> Cuando algo falle, sabrás dónde.</li><li><strong>Los campos de dirección con autocompletado</strong> exigen escribir y luego seleccionar de la lista: <code>type</code> seguido de <code>snapshot</code> y <code>click</code> sobre la opción.</li></ul>
+<h4>Cuándo NO automatizar</h4>
+<p>Hay portales —típicamente los públicos— cuyas SPA exigen <strong>gestos de usuario reales</strong> y rechazan la interacción automatizada. Ahí el enfoque correcto es distinto y funciona igual de bien:</p>
+<blockquote><strong>Preparar el guion y llenarlo a mano.</strong></blockquote>
+<p>Se escribe un documento con el <strong>valor exacto para cada campo, en el orden de las pantallas</strong>, y se llena mirándolo. Se tarda 20 minutos en vez de 5, pero no falla. Y ese guion sirve para siempre: la próxima convocatoria es copiar y pegar.</p>
+<p>El guion debe terminar con una sección explícita:</p>
+<pre><code class="lang-">## Solo tú puedes hacer esto
+- Iniciar sesión
+- Adjuntar los PDF
+- Confirmar y enviar</code></pre>
+<hr>
+<h3>Postulación por correo</h3>
+<p>Cuando el canal es un correo (bancos de hojas de vida, contactos directos):</p>
+<p><strong>Verifica el canal antes de enviar.</strong> Los correos institucionales publicados en las webs oficiales se caen y nadie actualiza la página. Si te rebota, llama, pregunta la dirección vigente y déjala anotada.</p>
+<p>Estructura del correo:</p>
+<pre><code class="lang-">Asunto: [Cargo al que aplicas] — [Tu nombre] — [Referencia si la hay]
+
+[Saludo]
+
+[1 párrafo: quién eres y a qué aplicas]
+[1 párrafo: por qué encajas, con 2 logros y sus cifras]
+[Cierre: disponibilidad + enlace a tu CV web]
+
+[Firma con teléfono, correo, LinkedIn]
+
+Adjunto: CV en PDF (versión ATS)</code></pre>
+<p>Reglas: el PDF adjunto, no un enlace de Drive (muchos filtros corporativos lo bloquean). Nombre de archivo claro: <code>CV_[Nombre]_[Cargo].pdf</code>. Y una sola página de correo.</p>
+<hr>
+<h3>Seguimiento</h3>
+<p>Sin registro, a las tres semanas no sabes dónde aplicaste. Usa <code>plantillas/seguimiento_postulaciones.md</code>.</p>
+<div class="tw"><table><thead><tr><th>Campo</th><th>Para qué</th></tr></thead><tbody><tr><td>Fecha</td><td>Calcular cuándo hacer seguimiento</td></tr><tr><td>Empresa / Cargo</td><td>Identificación</td></tr><tr><td>Canal</td><td>Saber qué canal te funciona</td></tr><tr><td>Versión de CV y carta enviadas</td><td>Poder repetir lo que funcionó</td></tr><tr><td>Contacto</td><td>A quién escribirle</td></tr><tr><td>Estado</td><td>Enviado · Confirmado · Entrevista · Prueba · Oferta · Descartado</td></tr><tr><td>Próxima acción + fecha</td><td><strong>La columna más importante</strong></td></tr><tr><td>Notas</td><td>Lo que aprendiste</td></tr></tbody></table></div>
+<p><strong>Ritmo de seguimiento:</strong> si a los 7–10 días hábiles no hay respuesta, un correo breve. Uno solo. Si no responden, sigue tu camino.</p>
+<p><strong>Revisa la tabla al final de cada semana</strong>: cuántas enviaste, cuántas respondieron, por qué canal. Si de 30 postulaciones no hay respuestas, el problema no es el volumen: es el CV, el canal o el encaje.</p>
+<hr>
+<h3>Verificación antes de cada envío</h3>
+<ul class="check"><li>Versión correcta del CV (ATS para portal, diseñada para persona)</li><li>Nombre de archivo profesional</li><li>La carta menciona algo concreto de esa empresa</li><li>Los datos del formulario coinciden con el CV — <strong>se cruzan después</strong></li><li>Captura o acuse guardado</li><li>Registrado en la tabla con su próxima acción</li></ul>
+<hr>
+<h3>Errores frecuentes</h3>
+<p><strong>Aplicar sin leer la oferta.</strong> Se nota, y quema la empresa para futuras vacantes.</p>
+<p><strong>El mismo CV genérico a todo.</strong> Ajustar el título y reordenar keywords según la oferta toma dos minutos y cambia el resultado.</p>
+<p><strong>No registrar.</strong> Te llaman de una empresa y no recuerdas a qué aplicaste ni con qué versión.</p>
+<p><strong>Volumen sin análisis.</strong> 50 postulaciones sin respuesta no piden más postulaciones, piden revisar el CV.</p>
+<p><strong>Descuidar los datos &quot;de trámite&quot;.</strong> La dirección, el estado civil o el nivel educativo que pones en un formulario se cruzan luego en la verificación de antecedentes. Ten una única fuente para esos datos.</p>
+<hr>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="f5">
+  <div class="doc-head"><span class="tag">Fase 5</span><h2>Proceso de contratación</h2></div>
+<p><strong>Qué produce:</strong> un paquete documental completo, organizado y dentro del límite de tamaño, listo para enviar.</p>
+<p>Esta fase arranca cuando te seleccionan. <strong>Suele llegar con plazo de días</strong>, así que conviene haber leído esto antes de necesitarlo.</p>
+<hr>
+<h3>Qué va a pasar</h3>
+<p>Cuando pasas las entrevistas, casi siempre hay una etapa de verificación: un <strong>estudio de seguridad</strong> (propio o de una consultora externa) que confirma que eres quien dices y que tu trayectoria es real.</p>
+<p>Te van a pedir, en una sola tanda y con poco tiempo:</p>
+<ul><li>Formatos propios de la empresa, diligenciados y firmados</li><li>Documento de identidad, y a veces libreta militar o pasaporte</li><li>Diplomas y actas de grado</li><li><strong>Certificaciones laborales de cada empleo</strong>, con fechas y cargo</li><li>Historial de aportes a pensión</li><li>Afiliaciones vigentes de salud, pensión y cesantías</li><li>Referencias personales y laborales con teléfono</li><li>Comprobante de domicilio</li><li>A veces documentos familiares</li></ul>
+<hr>
+<h3>Anticípate: la carpeta permanente</h3>
+<p>Lo más rentable de esta fase es hacer <strong>hoy</strong> lo que te van a pedir después. Ten una carpeta con lo que ya puedas reunir, aunque no estés en ningún proceso:</p>
+<pre><code class="lang-">documentos-personales/
+  identidad/          # documento, pasaporte, libreta militar
+  educacion/          # diplomas y actas de cada nivel
+  laboral/            # una certificación por empleo
+  certificaciones/    # cursos y certificaciones técnicas
+  seguridad-social/   # salud, pensión, cesantías, historial de aportes
+  domicilio/          # comprobante reciente</code></pre>
+<p><strong>Pide las certificaciones laborales cuando sales de una empresa, no años después.</strong> Es la que más problemas da: las áreas de RR.HH. tardan, la gente que te conocía se fue, y algunas empresas sencillamente ya no existen.</p>
+<hr>
+<h3>El índice: la pieza clave del método</h3>
+<p>El entregable no es una carpeta con archivos sueltos: es una <strong>carpeta con su índice</strong>. Ese documento mapea cada requisito con el archivo que lo satisface, y es lo que hace que quien revisa no tenga que adivinar.</p>
+<p>Usa <code>plantillas/LISTA_DOCUMENTOS.md</code>.</p>
+<h4>Convención de nombres</h4>
+<p>Numeración por familias, de modo que el orden alfabético sea el orden lógico:</p>
+<pre><code class="lang-">1. Hoja de vida.pdf
+2. Documento de identidad.pdf
+3.1 Certificacion laboral - [EMPLEO 1].pdf
+3.2 Certificacion laboral - [EMPLEO 2].pdf
+5. Acta de grado.pdf
+9.1 Certificacion [TEMA].pdf
+10.1 Afiliacion salud.pdf
+10.2 Afiliacion pension.pdf</code></pre>
+<p>Sin tildes ni caracteres especiales en los nombres: algunos portales de carga los rompen.</p>
+<h4>El semáforo</h4>
+<p>En el índice, cada documento con su estado y <strong>cómo conseguirlo</strong>:</p>
+<div class="tw"><table><thead><tr><th>#</th><th>Documento</th><th>Estado</th><th>Cómo obtenerlo</th></tr></thead><tbody><tr><td>1</td><td>[Documento]</td><td>🟢 Tengo</td><td>—</td></tr><tr><td>2</td><td>[Documento]</td><td>🟡 Diligenciar</td><td>Formato de la empresa, firmar</td></tr><tr><td>3</td><td>[Documento]</td><td>🔴 Solicitar</td><td>Escribir a [entidad], tarda [N] días</td></tr></tbody></table></div>
+<p>Sirve para dos cosas: saber por dónde empezar, y poder decirle a la empresa con precisión qué falta y cuándo llega.</p>
+<hr>
+<h3>Cuando un documento no se puede conseguir</h3>
+<p>Pasa más de lo que parece, y <strong>la solución nunca es callarse</strong>. Se aporta el sustituto con una nota que explique por qué.</p>
+<div class="tw"><table><thead><tr><th>Situación</th><th>Qué aportar</th></tr></thead><tbody><tr><td>La empresa ya no existe</td><td>Certificado de liquidación o registro mercantil que lo pruebe, más lo que sí tengas: contrato, liquidación, comprobantes de pago</td></tr><tr><td>RR.HH. no responde</td><td>Contrato + comprobantes de aportes a pensión de ese periodo (el historial de aportes es una fuente oficial e independiente)</td></tr><tr><td>Título en trámite</td><td>Certificación de terminación de estudios + carta de compromiso con la fecha en que entregarás el acta</td></tr><tr><td>Documento en otra ciudad</td><td>Dilo y da fecha de entrega</td></tr></tbody></table></div>
+<p>La nota va en el índice, no en un correo aparte que se pierde.</p>
+<blockquote><em>Ej.: &quot;El empleador de [PERIODO] se encuentra liquidado, por lo que no puede expedir certificación laboral. Se aporta el auto de liquidación y el historial de aportes correspondiente.&quot;</em></blockquote>
+<hr>
+<h3>Diligenciar formatos de la empresa</h3>
+<p>Suelen mandar un <code>.docx</code> o un PDF con tablas. Dos caminos:</p>
+<p><strong>Si es <code>.docx</code>:</strong> se puede diligenciar por código conservando el formato original. La receta completa está en <code>ANEXO_A</code>, receta 4. Ventaja real: cuando el formato tiene 8 bloques iguales (uno por empleo) y necesitas 12, se replican los bloques respetando bordes y tipografía.</p>
+<p><strong>Si es PDF:</strong> rellenar a mano, imprimir, firmar y escanear.</p>
+<p><strong>Regla:</strong> nunca dejes un campo en blanco sin explicación. Si algo no aplica, escribe &quot;No aplica&quot;. Si falta un dato, escribe &quot;Pendiente&quot; y avisa. Un campo vacío parece un descuido; uno marcado, una decisión.</p>
+<hr>
+<h3>Comprimir para enviar</h3>
+<p>El límite de correo suele ser 25 MB y los portales piden a veces menos de 5 MB por archivo. Un paquete de escaneos llega fácil a 30 MB.</p>
+<p>Receta completa en <code>ANEXO_A</code>, receta 1. Lo esencial:</p>
+<ul><li><strong>No re-comprimas los PDF que ya tienen texto</strong> (los generados digitalmente). Rasterizarlos los empeora y a veces los agranda.</li><li><strong>Los escaneos sí</strong>: bajarlos a ~1800 px de lado mayor con calidad JPEG media reduce un 70–80% sin perder legibilidad.</li><li><strong>Si un documento tiene firma o huella, trátalo aparte</strong> con calidad alta. Son detalle fino y se destruyen con compresión agresiva.</li><li><strong>Verifica abriendo el resultado</strong>, no mirando el tamaño. Si no puedes leer un número de documento, no sirve.</li><li>Si el resultado pesa más que el original, quédate con el original.</li></ul>
+<hr>
+<h3>Envío</h3>
+<ul class="check"><li>Índice incluido como primer archivo</li><li>Nombres de archivo sin tildes ni caracteres especiales</li><li>Todo abre correctamente (ábrelos uno por uno)</li><li>Peso dentro del límite</li><li>Asunto del correo con tu nombre y el proceso</li><li>Copia a ti mismo, para tener acuse con fecha</li><li>Lo que quede pendiente, dicho explícitamente con fecha de entrega</li></ul>
+<hr>
+<h3>Coherencia: lo que de verdad revisan</h3>
+<p>El estudio de seguridad <strong>cruza fuentes</strong>. Antes de enviar, comprueba que estas cuatro cuentan lo mismo:</p>
+<ol><li>Tu CV</li><li>El formato que diligenciaste</li><li>LinkedIn</li><li>El historial de aportes a pensión</li></ol>
+<p>Los puntos donde aparecen diferencias:</p>
+<ul><li><strong>Fechas de entrada y salida.</strong> Tu CV dice años; el historial de aportes dice meses exactos. Si hay diferencia, ten la explicación lista.</li><li><strong>Periodos solapados.</strong> Dos contratos a la vez es perfectamente normal (consultoría, prestación de servicios), pero <strong>te lo van a preguntar</strong>. Ten la respuesta preparada.</li><li><strong>Vacíos entre empleos.</strong> También te los preguntan. La respuesta honesta —estudiando, proyecto propio, búsqueda— sirve; la evasiva, no.</li><li><strong>Títulos en trámite.</strong> Si el CV dice &quot;Ingeniero&quot; y el acta no existe todavía, se nota. Escribe &quot;en trámite de grado&quot; desde el principio.</li></ul>
+<p>Ninguno de estos es un problema en sí mismo. <strong>El problema es que te tomen por sorpresa.</strong></p>
+<hr>
+<h3>Errores frecuentes</h3>
+<p><strong>Empezar a pedir certificaciones cuando ya te las pidieron.</strong> Algunas tardan semanas.</p>
+<p><strong>Enviar sin índice.</strong> Multiplica las idas y vueltas.</p>
+<p><strong>Comprimir sin verificar.</strong> Un documento ilegible es un documento no entregado.</p>
+<p><strong>Ocultar un vacío o un solapamiento.</strong> Se detecta en el cruce y se convierte en un problema de confianza, que es mucho peor que el hecho en sí.</p>
+<p><strong>Dejar campos en blanco</strong> sin decir por qué.</p>
+<hr>
+<h3>Anexos relacionados</h3>
+<ul><li>Recetas técnicas — comprimir, diligenciar, firmas y huellas</li><li>Checklists — la lista de verificación antes de enviar</li></ul>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="anexoa">
+  <div class="doc-head"><span class="tag">Anexo A</span><h2>Recetas técnicas</h2></div>
+<p>Procedimientos concretos que cuestan tiempo descubrir. Cada uno incluye <strong>qué no funciona y por qué</strong>, que suele ser lo más útil.</p>
+<p>Dependencias comunes:</p>
+<pre><code class="lang-bash">python3 -m pip install pymupdf pillow numpy python-docx</code></pre>
+<hr>
+<h3>1. Comprimir PDFs sin arruinarlos</h3>
+<p><strong>Problema:</strong> un paquete de documentos escaneados pesa 30 MB y el límite de correo son 25 MB.</p>
+<h4>La regla que casi nadie aplica</h4>
+<p><strong>Antes de comprimir, mira si el PDF tiene capa de texto.</strong> Los PDF generados digitalmente (facturas, certificados electrónicos, tu propio CV) ya están comprimidos de forma óptima. Rasterizarlos:</p>
+<ul><li>destruye el texto seleccionable,</li><li>empeora la calidad visual,</li><li>y <strong>muchas veces los agranda</strong>.</li></ul>
+<pre><code class="lang-python">import fitz  # pymupdf
+
+def tiene_texto(ruta, umbral=200):
+    doc = fitz.open(ruta)
+    chars = sum(len(p.get_text().strip()) for p in doc)
+    doc.close()
+    return chars &gt; umbral</code></pre>
+<p>Si devuelve <code>True</code>: <strong>déjalo como está</strong>.</p>
+<h4>Comprimir los escaneos</h4>
+<pre><code class="lang-python">import fitz
+
+def comprimir_escaneo(entrada, salida, lado_max=1800, calidad=60):
+    &quot;&quot;&quot;Re-renderiza cada página como JPEG. Solo para PDF SIN capa de texto.&quot;&quot;&quot;
+    src = fitz.open(entrada)
+    dst = fitz.open()
+    for page in src:
+        rect = page.rect
+        escala = min(lado_max / max(rect.width, rect.height), 4.0)
+        pix = page.get_pixmap(matrix=fitz.Matrix(escala, escala), colorspace=fitz.csRGB)
+        nueva = dst.new_page(width=rect.width, height=rect.height)
+        nueva.insert_image(rect, stream=pix.tobytes(&quot;jpeg&quot;, jpg_quality=calidad))
+    dst.save(salida, deflate=True, garbage=4)
+    dst.close(); src.close()</code></pre>
+<p>Valores de referencia: <strong>1800 px</strong> de lado mayor y <strong>calidad 60</strong> dan documentos perfectamente legibles con un 70–80% menos de peso. Para texto muy pequeño, sube a 2000 px.</p>
+<h4>Calidad diferenciada por página</h4>
+<p>Si el documento tiene una página de puro texto y otra con firma o huella, no las trates igual:</p>
+<pre><code class="lang-python">CALIDADES = {0: 60, 1: 95}   # pág 1 texto · pág 2 firma y huella
+calidad = CALIDADES.get(numero_pagina, 70)</code></pre>
+<p>Sale <strong>más pequeño y con mejor calidad donde importa</strong> que aplicar una calidad media a todo.</p>
+<h4>La regla anti-crecimiento</h4>
+<p>Comprobación obligatoria al final:</p>
+<pre><code class="lang-python">import os
+if os.path.getsize(salida) &gt;= os.path.getsize(entrada):
+    os.remove(salida)          # el original era mejor</code></pre>
+<p>Pasa más de lo que parece, sobre todo con archivos ya optimizados.</p>
+<h4>Verificación</h4>
+<p><strong>Abre el resultado y léelo.</strong> No mires solo el tamaño. Comprueba específicamente:</p>
+<ul class="check"><li>Los números de documento se leen sin dudar</li><li>La letra pequeña (pies de página, notas legales) es legible</li><li>Firmas y sellos conservan sus trazos</li><li>Ninguna página salió en blanco o rotada</li></ul>
+<h4>Alternativas</h4>
+<pre><code class="lang-bash"># Ghostscript (multiplataforma)
+gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook \
+   -dNOPAUSE -dQUIET -dBATCH -sOutputFile=salida.pdf entrada.pdf</code></pre>
+<p><code>/ebook</code> es el ajuste equilibrado; <code>/screen</code> comprime más y a veces de más.</p>
+<hr>
+<h3>2. Medir si la compresión arruinó lo importante</h3>
+<p>Una media de calidad sobre el documento entero no dice nada: lo que importa es <strong>la zona crítica</strong>. Mide el PSNR solo ahí.</p>
+<pre><code class="lang-python">import fitz, numpy as np
+
+def psnr_zona(orig, comp, pagina, rect, dpi=150):
+    &quot;&quot;&quot;PSNR de una región concreta. rect = fitz.Rect(x0, y0, x1, y1) en puntos.&quot;&quot;&quot;
+    def region(ruta):
+        d = fitz.open(ruta)
+        pix = d[pagina].get_pixmap(clip=rect, dpi=dpi, colorspace=fitz.csRGB)
+        a = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, 3)
+        d.close()
+        return a.astype(np.float64)
+    a, b = region(orig), region(comp)
+    if a.shape != b.shape:
+        return None
+    mse = np.mean((a - b) ** 2)
+    return 99.0 if mse == 0 else 10 * np.log10(255 ** 2 / mse)</code></pre>
+<p>Interpretación:</p>
+<div class="tw"><table><thead><tr><th>PSNR</th><th>Veredicto</th></tr></thead><tbody><tr><td>≥ 45 dB</td><td>Sin pérdida perceptible</td></tr><tr><td>40–45 dB</td><td>Muy buena, sirve para firmas y huellas</td></tr><tr><td>35–40 dB</td><td>Aceptable para texto</td></tr><tr><td>&lt; 35 dB</td><td>Degradada: sube la calidad</td></tr></tbody></table></div>
+<p>Es una guía, no un juez. <strong>La comprobación final siempre es mirar el resultado ampliado.</strong></p>
+<hr>
+<h3>3. Foto de perfil: cambiar el fondo</h3>
+<p><strong>El paso que casi todos omiten</strong> no es recortar: es limpiar el borde.</p>
+<p>Al recortar un sujeto, los píxeles del contorno son una <strong>mezcla</strong> del sujeto con el fondo original. Si solo cambias el fondo, esos píxeles conservan el color viejo y aparece un <strong>halo</strong> — un contorno claro alrededor del pelo que delata el recorte. Sobre fondo blanco no se nota; sobre cualquier color, sí.</p>
+<h4>Procedimiento</h4>
+<ol><li><strong>Segmentar</strong> el sujeto (herramienta web, <code>rembg</code>, o la función de &quot;quitar fondo&quot; del sistema).</li><li><strong>Descontaminar el borde</strong>: para cada píxel semitransparente, estimar el color del fondo <em>local</em> y despejar el color real del sujeto:</li></ol>
+<pre><code class="lang-">   color_real = (color_observado − fondo × (1 − alfa)) / alfa</code></pre>
+<p>El fondo local se estima difuminando la imagen ponderada por <code>(1 − alfa)</code>. Un color global no basta si el fondo original no era uniforme, que es lo normal en una foto casera.</p>
+<ol><li><strong>Componer</strong> sobre el fondo nuevo.</li></ol>
+<p>Con <code>rembg</code>, que ya hace parte de esto:</p>
+<pre><code class="lang-bash">python3 -m pip install rembg pillow
+python3 -c &quot;
+from rembg import remove
+from PIL import Image
+img = Image.open(&#x27;foto_original.jpg&#x27;)
+Image.alpha_composite(
+    Image.new(&#x27;RGBA&#x27;, img.size, (30, 80, 140, 255)),   # fondo azul
+    remove(img).convert(&#x27;RGBA&#x27;)
+).convert(&#x27;RGB&#x27;).save(&#x27;foto_perfil.jpg&#x27;, quality=95)
+&quot;</code></pre>
+<h4>Versión 3×4 para formatos oficiales</h4>
+<pre><code class="lang-python">from PIL import Image
+img = Image.open(&quot;foto_perfil.jpg&quot;)
+w, h = img.size
+lado = min(w, int(h * 3 / 4))
+img.crop(((w - lado) // 2, 0, (w + lado) // 2, int(lado * 4 / 3))) \
+   .resize((600, 800), Image.LANCZOS).save(&quot;foto_3x4.jpg&quot;, quality=95)</code></pre>
+<h4>Verificación</h4>
+<ul class="check"><li><strong>Amplía el borde del pelo al 300%</strong>: no debe haber contorno claro</li><li>Componla sobre un color fuerte (magenta) para ver los defectos</li><li>No se comieron mechones ni partes de los hombros</li></ul>
+<hr>
+<h3>4. Diligenciar un <code>.docx</code> conservando el formato</h3>
+<p><strong>Problema:</strong> la empresa manda un formato Word con tablas y hay que rellenarlo sin romper el diseño.</p>
+<h4>Inspeccionar antes de escribir</h4>
+<p>Nunca asumas la estructura. Las tablas de formularios están llenas de celdas combinadas:</p>
+<pre><code class="lang-python">import docx
+W = &#x27;{http://schemas.openxmlformats.org/wordprocessingml/2006/main}&#x27;
+doc = docx.Document(&quot;formato.docx&quot;)
+
+for ti, tabla in enumerate(doc.tables):
+    print(f&quot;--- Tabla {ti}: {len(tabla.rows)} filas ---&quot;)
+    for ri, fila in enumerate(tabla.rows):
+        celdas = fila._tr.tc_lst
+        info = []
+        for ci, tc in enumerate(celdas):
+            txt = &#x27;&#x27;.join(n.text or &#x27;&#x27; for n in tc.iter() if n.tag == W + &#x27;t&#x27;)
+            span = tc.find(&#x27;.//&#x27; + W + &#x27;gridSpan&#x27;)
+            merge = tc.find(&#x27;.//&#x27; + W + &#x27;vMerge&#x27;)
+            marca = &#x27;&#x27;
+            if span is not None:  marca += &#x27; [combinada-h]&#x27;
+            if merge is not None: marca += &#x27; [combinada-v]&#x27;
+            info.append(f&quot;[{ci}]{marca} {txt[:40]!r}&quot;)
+        print(f&quot;  fila {ri}: {len(celdas)} celdas :: &quot; + &quot; | &quot;.join(info))</code></pre>
+<p>Una fila puede tener 2 o 3 celdas según las combinaciones. <strong>Escribir en el índice equivocado destroza el formato.</strong></p>
+<h4>Escribir conservando el estilo</h4>
+<p>La clave: <strong>escribir sobre el <code>run</code> que ya existe</strong>, no crear uno nuevo. El run existente lleva la fuente, el tamaño y el color del formato original.</p>
+<pre><code class="lang-python">def escribir(celda, texto):
+    for p in celda.paragraphs[1:]:              # limpia párrafos sobrantes
+        p._element.getparent().remove(p._element)
+    p = celda.paragraphs[0]
+    if p.runs:
+        p.runs[0].text = texto                  # reutiliza el formato
+        for r in list(p.runs[1:]):
+            r._element.getparent().remove(r._element)
+    else:
+        p.add_run(texto)</code></pre>
+<h4>Replicar bloques</h4>
+<p>Cuando el formato trae 4 bloques de &quot;empleo&quot; y necesitas 7:</p>
+<pre><code class="lang-python">import copy
+
+def clonar_filas(tabla, desde, hasta, veces=1):
+    &quot;&quot;&quot;Clona un rango de filas y lo añade al final, con bordes y estilo.&quot;&quot;&quot;
+    plantilla = [copy.deepcopy(tabla.rows[i]._tr) for i in range(desde, hasta)]
+    for _ in range(veces):
+        for tr in plantilla:
+            tabla._tbl.append(copy.deepcopy(tr))</code></pre>
+<p>Al clonar el XML se heredan bordes, sombreado y tipografía. Reconstruir la fila a mano nunca queda igual.</p>
+<h4>Verificación</h4>
+<p>Vuelve a abrir el archivo generado y <strong>vuelca las tablas completas</strong>, comprobando que cada valor quedó en su celda y que ninguna etiqueta se sobrescribió. Después ábrelo en Word: python-docx puede producir archivos que se abren mal si se manipuló mal el XML.</p>
+<hr>
+<h3>5. Extraer texto de PDFs escaneados</h3>
+<pre><code class="lang-python">import fitz
+doc = fitz.open(&quot;documento.pdf&quot;)
+for i, page in enumerate(doc):
+    texto = page.get_text().strip()
+    print(f&quot;pág {i+1}: {len(texto)} caracteres&quot;)</code></pre>
+<p><strong>Si devuelve 0 caracteres, es una imagen.</strong> Opciones:</p>
+<ol><li><strong>Leerlo tú</strong> (o pedirle a un asistente con visión que lo lea) tras renderizarlo:</li></ol>
+<pre><code class="lang-python">   page.get_pixmap(dpi=200).save(f&quot;pagina_{i}.png&quot;)</code></pre>
+<ol><li><strong>OCR</strong>, si necesitas el texto en máquina:</li></ol>
+<pre><code class="lang-bash">   python3 -m pip install pytesseract   # requiere tesseract instalado</code></pre>
+<p>Para un puñado de documentos, renderizar y leer es más rápido y fiable que montar OCR.</p>
+<hr>
+<h3>6. Componer una firma o una huella sobre un documento</h3>
+<p><strong>Caso:</strong> tienes el formulario en digital (nítido, ligero) y la firma o la huella solo existen en un escaneo del papel.</p>
+<p>Vale la pena decirlo: esto es legítimo cuando es <strong>tu propia firma sobre tu propio documento</strong> — es lo mismo que hace cualquier herramienta de firma electrónica. Si el destinatario espera ver el escaneo del original firmado a mano, manda el escaneo.</p>
+<h4>Las tres reglas</h4>
+<p><strong>1. No remuestrees la huella.</strong> Las crestas están al límite de resolución; ampliarlas genera moiré y las destruye. Extrae los píxeles originales:</p>
+<pre><code class="lang-python">import fitz
+doc = fitz.open(&quot;escaneo.pdf&quot;)
+for img in doc[1].get_images(full=True):
+    pix = fitz.Pixmap(doc, img[0])       # píxeles reales, sin reescalar
+    pix.save(&quot;huella_cruda.png&quot;)</code></pre>
+<p><strong>2. Calcula el alfa en vez de recortar a mano.</strong> Para que se integre sin parche visible, el fondo del papel debe volverse transparente y la tinta opaca:</p>
+<pre><code class="lang-python">import numpy as np
+from PIL import Image
+
+a = np.array(Image.open(&quot;huella_cruda.png&quot;).convert(&quot;L&quot;)).astype(float)
+papel = np.percentile(a, 93)      # nivel del papel
+piso  = np.percentile(a, 0.4)     # tinta más densa
+v = np.clip((a - piso) / max(papel - piso, 1) * 255, 0, 255)
+rgba = np.zeros((*a.shape, 4), dtype=np.uint8)
+rgba[..., 3] = (255 - v).astype(np.uint8)   # negro con alfa = densidad
+Image.fromarray(rgba).save(&quot;huella.png&quot;)</code></pre>
+<p>Sobre fondo blanco reproduce exactamente los grises originales.</p>
+<p><strong>3. No rasterices el documento base.</strong> Superpón la imagen sin convertir la página a mapa de bits, para que el texto siga siendo texto:</p>
+<pre><code class="lang-python">import fitz
+doc = fitz.open(&quot;formulario.pdf&quot;)
+doc[1].insert_image(fitz.Rect(x0, y0, x1, y1), filename=&quot;huella.png&quot;)
+doc.save(&quot;formulario_firmado.pdf&quot;)</code></pre>
+<h4>Ubicar el recuadro con precisión</h4>
+<p>En vez de estimar a ojo, extrae los rectángulos dibujados en el PDF:</p>
+<pre><code class="lang-python">for d in doc[1].get_drawings():
+    r = d[&quot;rect&quot;]
+    if 60 &lt; r.width &lt; 200 and 60 &lt; r.height &lt; 200:
+        print(f&quot;candidato: x={r.x0:.1f} y={r.y0:.1f} w={r.width:.1f} h={r.height:.1f}&quot;)</code></pre>
+<p>Respeta la <strong>proporción</strong> de la huella al colocarla, o quedará deformada y se nota.</p>
+<h4>Verificación</h4>
+<ul class="check"><li>La huella cae dentro del recuadro, sin tocar los bordes</li><li>No arrastra fondo gris ni el borde del recuadro del escaneo</li><li>El texto del documento sigue siendo seleccionable</li><li>Ampliada al 300%, las crestas siguen separadas</li></ul>
+<hr>
+<h3>7. Publicar en GitHub Pages y verificar</h3>
+<pre><code class="lang-bash">git add index.html
+git commit -m &quot;docs: actualiza CV&quot;
+git push origin main</code></pre>
+<p>Activar: <strong>Settings → Pages → Source: rama <code>main</code></strong>. Queda en <code>https://&lt;usuario&gt;.github.io/&lt;repo&gt;/</code>.</p>
+<p><strong>Verificación en vivo.</strong> Pages tarda 1–3 minutos y el navegador cachea con ganas — comprobar sin cache-busting es la causa número uno de &quot;no se actualizó&quot;:</p>
+<pre><code class="lang-bash">for i in $(seq 1 20); do
+  if curl -s -H &#x27;Cache-Control: no-cache&#x27; &quot;https://&lt;usuario&gt;.github.io/&lt;repo&gt;/?v=$i&quot; | grep -q &quot;[MARCA_NUEVA]&quot;; then
+    echo &quot;publicado&quot;; break
+  fi
+  sleep 10
+done</code></pre>
+<p>Donde <code>[MARCA_NUEVA]</code> es algo que solo exista en la versión nueva (una fecha de despliegue visible, un <code>id</code> nuevo). Poner un sello de fecha en la página facilita mucho esta comprobación.</p>
+<hr>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
+<section class="doc" id="anexob">
+  <div class="doc-head"><span class="tag">Anexo B</span><h2>Checklists</h2></div>
+<p>Listas para usar el día de. Pensadas para imprimir o tener abiertas al lado.</p>
+<hr>
+<h3>Antes de enviar una postulación</h3>
+<p><strong>El CV</strong></p>
+<ul class="check"><li>Versión correcta: <strong>ATS</strong> si es portal o formulario, <strong>diseñada</strong> si va a una persona</li><li>Nombre de archivo profesional: <code>CV_[Nombre]_[Cargo].pdf</code></li><li>Abrí el PDF y lo revisé (no solo el Word)</li><li>El título del CV coincide con el cargo de la vacante</li><li>Las keywords de la oferta que puedo sustentar están en el CV</li></ul>
+<p><strong>La carta</strong> (si aplica)</p>
+<ul class="check"><li>Menciona algo concreto de esta empresa</li><li>Las cifras coinciden exactamente con las del CV</li><li>Una sola página</li></ul>
+<p><strong>El formulario</strong></p>
+<ul class="check"><li>Los datos coinciden con el CV: fechas, cargos, nivel educativo</li><li>Ningún campo obligatorio en blanco</li><li>Revisé el correo y el teléfono carácter por carácter</li></ul>
+<p><strong>Después de enviar</strong></p>
+<ul class="check"><li>Captura o acuse guardado</li><li>Registrado en la tabla de seguimiento</li><li>Anotada la próxima acción y su fecha</li></ul>
+<hr>
+<h3>Antes de una entrevista</h3>
+<p><strong>Investigación (30 min)</strong></p>
+<ul class="check"><li>Qué hace la empresa y cómo gana dinero</li><li>Noticias recientes</li><li>Quién me entrevista y su perfil</li><li>Releí la oferta y marqué lo que piden</li></ul>
+<p><strong>Preparación</strong></p>
+<ul class="check"><li>Pitch de 30 segundos, dicho en voz alta, terminando con una cifra</li><li>Mis 3 historias STAR frescas</li><li>Guion honesto listo para las tecnologías que no domino</li><li>Repasé el glosario de mi propio CV</li><li><strong>3 preguntas para hacerles</strong></li><li>Expectativa salarial definida — con un número, no &quot;lo que ofrezcan&quot;</li></ul>
+<p><strong>Logística</strong></p>
+<ul class="check"><li>Enlace, hora y <strong>zona horaria</strong> confirmados</li><li>Cámara, micrófono y conexión probados</li><li>Fondo ordenado y buena luz</li><li>CV impreso o abierto</li><li>Agua a mano</li><li>Móvil en silencio</li></ul>
+<p><strong>Al terminar</strong></p>
+<ul class="check"><li>Anoté qué preguntaron y qué respondí flojo</li><li>Correo de agradecimiento en 24 h</li><li>Actualicé el seguimiento</li></ul>
+<hr>
+<h3>Antes de enviar un paquete documental</h3>
+<p><strong>Completitud</strong></p>
+<ul class="check"><li>Todos los documentos de la lista que mandó la empresa</li><li>Índice incluido como primer archivo</li><li>Lo que falta está señalado con fecha de entrega</li></ul>
+<p><strong>Calidad</strong></p>
+<ul class="check"><li>Abrí uno por uno y todos se leen</li><li>Los escaneos están derechos y completos (sin esquinas cortadas)</li><li>Los números de documento se leen sin dudar</li><li>Las firmas y sellos se ven</li></ul>
+<p><strong>Formato</strong></p>
+<ul class="check"><li>Nombres sin tildes ni caracteres especiales</li><li>Numerados según el índice</li><li>Peso total dentro del límite</li><li>Comprobé que la compresión no arruinó nada</li></ul>
+<p><strong>Coherencia</strong> — esto es lo que cruzan</p>
+<ul class="check"><li>Fechas iguales en CV, formato, LinkedIn e historial de aportes</li><li>Tengo explicación para cada solapamiento entre empleos</li><li>Tengo explicación para cada vacío entre empleos</li><li>Los títulos en trámite figuran como &quot;en trámite&quot;</li></ul>
+<p><strong>Envío</strong></p>
+<ul class="check"><li>Asunto con mi nombre y el proceso</li><li>Copia a mí mismo</li><li>Confirmé que la dirección de correo es la vigente</li></ul>
+<hr>
+<h3>Después de publicar algo en la web</h3>
+<ul class="check"><li>Esperé 1–3 minutos a que el despliegue propague</li><li>Verifiqué con cache-busting (<code>?v=algo</code>), no con recarga normal</li><li>Lo abrí en el <strong>móvil</strong></li><li>Los enlaces de descarga funcionan</li><li>Sin scroll horizontal en pantalla estrecha</li><li>La consola del navegador no muestra errores</li></ul>
+<hr>
+<h3>Revisión semanal</h3>
+<p>Cada viernes, 15 minutos con la tabla de seguimiento:</p>
+<ul class="check"><li>¿Cuántas postulaciones envié?</li><li>¿Cuántas respondieron? (<strong>la tasa importa más que el número</strong>)</li><li>¿Qué canal está funcionando?</li><li>¿Alguna espera respuesta hace más de 10 días? → seguimiento</li><li>¿Qué aprendí de las entrevistas de esta semana?</li><li>¿Hay que corregir el CV con lo aprendido?</li></ul>
+<p><strong>Señales de alarma:</strong></p>
+<div class="tw"><table><thead><tr><th>Señal</th><th>Qué revisar</th></tr></thead><tbody><tr><td>30+ postulaciones sin respuesta</td><td>El CV (¿pasa el filtro ATS?) o el encaje</td></tr><tr><td>Muchas entrevistas iniciales, ninguna segunda</td><td>Cómo cuentas tu experiencia — Fase 3</td></tr><tr><td>Caes en la prueba técnica</td><td>Practicar el formato específico</td></tr><tr><td>Caes al hablar de dinero</td><td>Definir el número antes, no improvisar</td></tr></tbody></table></div>
+<hr>
+<a class="top" href="#indice">↑ volver al índice</a>
+</section>
   <footer>
-    Procedimiento destilado de un sistema real de búsqueda de empleo, anonimizado para reutilización.
+    Procedimiento destilado de una búsqueda de empleo real y anonimizado para reutilización.
+    Todos los campos personales van como marcadores.
   </footer>
-
 </div>
-
 <script>
 (function(){
   var b=document.getElementById('theme'), r=document.documentElement;
   try{ var s=localStorage.getItem('tema'); if(s) r.setAttribute('data-theme',s); }catch(e){}
   b.addEventListener('click',function(){
-    var actual=r.getAttribute('data-theme');
-    if(!actual) actual = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark':'light';
-    var nuevo = actual==='dark' ? 'light':'dark';
-    r.setAttribute('data-theme',nuevo);
-    try{ localStorage.setItem('tema',nuevo); }catch(e){}
+    var a=r.getAttribute('data-theme');
+    if(!a) a = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark':'light';
+    var n = a==='dark' ? 'light':'dark';
+    r.setAttribute('data-theme',n);
+    try{ localStorage.setItem('tema',n); }catch(e){}
   });
 })();
 </script>
