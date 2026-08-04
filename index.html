@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runbook de búsqueda de empleo — mapa del sistema</title>
+<meta name="description" content="Procedimiento estándar de búsqueda de empleo para perfiles técnicos: CV multiformato, preparación de entrevistas, postulación y proceso de contratación.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Runbook de búsqueda de empleo — mapa del sistema">
+<meta property="og:description" content="Procedimiento estándar de búsqueda de empleo para perfiles técnicos: CV multiformato, preparación de entrevistas, postulación y proceso de contratación.">
+<meta property="og:url" content="https://hgomezgonzalez.github.io/runbook-busqueda-empleo/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+</head>
+<body>
+<button id="theme" type="button" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
+<style>
+  :root{
+    --paper:#fbfbfc; --surface:#ffffff; --sunk:#f2f4f7;
+    --ink:#131a24; --ink-soft:#4a5769; --ink-faint:#7d8a9d;
+    --line:#dfe4ec; --line-soft:#eceff4;
+    --brand:#1d3557; --brand-soft:#3d6491;
+    --accent:#a2542a; --accent-soft:#c47a48;
+    --good:#2f6b4f; --warn:#8f6412;
+    --serif:ui-serif,"New York","Iowan Old Style",Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --maxw:1080px;
+    --shadow:0 1px 2px rgba(19,26,36,.04),0 6px 20px rgba(19,26,36,.05);
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#0e1319; --surface:#161d26; --sunk:#1b232e;
+      --ink:#e7ecf3; --ink-soft:#a5b2c4; --ink-faint:#77869a;
+      --line:#28323f; --line-soft:#1f2833;
+      --brand:#84acd8; --brand-soft:#5f88b4;
+      --accent:#d9895a; --accent-soft:#b56b41;
+      --good:#5fa583; --warn:#c9a04b;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0e1319; --surface:#161d26; --sunk:#1b232e;
+    --ink:#e7ecf3; --ink-soft:#a5b2c4; --ink-faint:#77869a;
+    --line:#28323f; --line-soft:#1f2833;
+    --brand:#84acd8; --brand-soft:#5f88b4;
+    --accent:#d9895a; --accent-soft:#b56b41;
+    --good:#5fa583; --warn:#c9a04b;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.28);
+  }
+  :root[data-theme="light"]{
+    --paper:#fbfbfc; --surface:#ffffff; --sunk:#f2f4f7;
+    --ink:#131a24; --ink-soft:#4a5769; --ink-faint:#7d8a9d;
+    --line:#dfe4ec; --line-soft:#eceff4;
+    --brand:#1d3557; --brand-soft:#3d6491;
+    --accent:#a2542a; --accent-soft:#c47a48;
+    --good:#2f6b4f; --warn:#8f6412;
+    --shadow:0 1px 2px rgba(19,26,36,.04),0 6px 20px rgba(19,26,36,.05);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  a{color:var(--brand)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+  /* ---------- cabecera ---------- */
+  .head{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,5vw,3.1rem);
+    line-height:1.1;letter-spacing:-.015em;margin:0 0 18px;text-wrap:balance;max-width:19ch}
+  .lede{font-size:1.12rem;color:var(--ink-soft);max-width:62ch;margin:0}
+  .lede strong{color:var(--ink);font-weight:600}
+
+  .facts{display:flex;flex-wrap:wrap;gap:0;margin-top:38px;
+    border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+  .fact{flex:1 1 130px;padding:16px 20px;border-right:1px solid var(--line-soft)}
+  .fact:last-child{border-right:none}
+  .fact b{display:block;font-family:var(--mono);font-size:1.5rem;font-weight:600;
+    color:var(--brand);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .fact span{display:block;font-size:.78rem;color:var(--ink-faint);margin-top:3px}
+
+  /* ---------- principio ---------- */
+  .axiom{margin:52px 0;padding:30px 34px;background:var(--sunk);
+    border-left:3px solid var(--accent);border-radius:0 12px 12px 0}
+  .axiom p{margin:0;font-family:var(--serif);font-size:1.35rem;line-height:1.4;
+    color:var(--ink);text-wrap:balance}
+  .axiom small{display:block;margin-top:12px;font-family:var(--sans);
+    font-size:.92rem;color:var(--ink-soft);line-height:1.55}
+
+  /* ---------- secciones ---------- */
+  section{padding:8px 0 4px}
+  h2{font-family:var(--serif);font-weight:600;font-size:1.75rem;letter-spacing:-.01em;
+    margin:56px 0 6px;text-wrap:balance}
+  .sub{color:var(--ink-soft);margin:0 0 26px;max-width:60ch}
+
+  /* ---------- eje de fases ---------- */
+  .track{position:relative;padding-left:66px}
+  .track::before{content:"";position:absolute;left:21px;top:14px;bottom:26px;
+    width:2px;background:linear-gradient(var(--line),var(--line) 70%,transparent)}
+  .phase{position:relative;margin-bottom:14px;background:var(--surface);
+    border:1px solid var(--line);border-radius:12px;padding:20px 24px;box-shadow:var(--shadow)}
+  .phase::before{content:attr(data-n);position:absolute;left:-66px;top:18px;
+    width:44px;height:44px;border-radius:50%;background:var(--surface);
+    border:2px solid var(--accent);color:var(--accent);
+    font-family:var(--mono);font-size:.95rem;font-weight:600;
+    display:flex;align-items:center;justify-content:center}
+  .phase h3{font-family:var(--serif);font-size:1.22rem;font-weight:600;margin:0 0 4px}
+  .phase .file{font-family:var(--mono);font-size:.74rem;color:var(--ink-faint)}
+  .phase .out{margin:12px 0 0;padding:11px 14px;background:var(--sunk);
+    border-radius:8px;font-size:.9rem;color:var(--ink-soft)}
+  .phase .out b{color:var(--good);font-weight:600}
+  .bullets{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:7px}
+  .bullets li{position:relative;padding-left:17px;font-size:.93rem;color:var(--ink-soft)}
+  .bullets li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;
+    border-radius:50%;background:var(--brand-soft)}
+  .bullets li b{color:var(--ink);font-weight:600}
+  .dep{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:.71rem;
+    letter-spacing:.05em;color:var(--ink-faint);border:1px dashed var(--line);
+    padding:3px 9px;border-radius:20px}
+
+  /* ---------- cronograma ---------- */
+  .weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .week{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:20px 22px;box-shadow:var(--shadow);border-top:3px solid var(--brand-soft)}
+  .week:nth-child(2){border-top-color:var(--accent-soft)}
+  .week:nth-child(3){border-top-color:var(--good)}
+  .week .w{font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;
+    text-transform:uppercase;color:var(--ink-faint)}
+  .week h4{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin:5px 0 10px}
+  .week ol{margin:0;padding-left:19px;font-size:.9rem;color:var(--ink-soft);display:grid;gap:5px}
+
+  /* ---------- anexos ---------- */
+  .annex{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:22px 24px;box-shadow:var(--shadow)}
+  .card h4{font-family:var(--serif);font-size:1.1rem;font-weight:600;margin:0 0 3px}
+  .card .file{font-family:var(--mono);font-size:.73rem;color:var(--ink-faint);
+    display:block;margin-bottom:12px}
+  .card ul{margin:0;padding-left:18px;font-size:.9rem;color:var(--ink-soft);display:grid;gap:5px}
+
+  /* ---------- reglas ---------- */
+  .rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:12px}
+  .rule{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:17px 19px}
+  .rule.key{border-color:var(--accent);background:linear-gradient(
+    to bottom right,color-mix(in srgb,var(--accent) 5%,var(--surface)),var(--surface))}
+  .rule .n{font-family:var(--mono);font-size:.72rem;color:var(--accent);font-weight:600}
+  .rule h5{font-size:.97rem;font-weight:650;margin:3px 0 5px;line-height:1.3}
+  .rule p{margin:0;font-size:.86rem;color:var(--ink-soft);line-height:1.5}
+
+  /* ---------- árbol de archivos ---------- */
+  .tree{background:var(--sunk);border:1px solid var(--line);border-radius:12px;
+    padding:22px 26px;overflow-x:auto}
+  .tree pre{margin:0;font-family:var(--mono);font-size:.83rem;line-height:1.75;
+    color:var(--ink-soft);white-space:pre}
+  .tree .d{color:var(--brand);font-weight:600}
+  .tree .c{color:var(--ink-faint)}
+
+  /* ---------- aviso ---------- */
+  .note{margin:26px 0 0;padding:18px 22px;border:1px solid var(--warn);
+    border-radius:10px;background:color-mix(in srgb,var(--warn) 7%,var(--surface));
+    font-size:.92rem;color:var(--ink-soft)}
+  .note b{color:var(--ink)}
+
+  footer{margin-top:64px;padding:26px 0 56px;border-top:1px solid var(--line);
+    font-size:.84rem;color:var(--ink-faint)}
+
+
+  a.file{text-decoration:none;border-bottom:1px dotted var(--ink-faint);transition:color .15s,border-color .15s}
+  a.file:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:9px;
+    font-size:.92rem;font-weight:550;text-decoration:none;border:1px solid var(--line);
+    background:var(--surface);color:var(--ink);transition:border-color .15s,transform .12s}
+  .btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  :root[data-theme="dark"] .btn.primary,
+  :root:not([data-theme="light"]) .btn.primary{color:var(--paper)}
+  @media (prefers-color-scheme:dark){.btn.primary{color:#0e1319}}
+  .btn.primary:hover{filter:brightness(1.08);border-color:var(--brand)}
+  #theme{position:fixed;top:16px;right:16px;z-index:50;width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink-soft);
+    cursor:pointer;font-size:1rem;line-height:1;box-shadow:var(--shadow)}
+  #theme:hover{border-color:var(--accent);color:var(--accent)}
+  @media print{#theme,.cta{display:none}}
+  @media (max-width:640px){
+    .head{padding:44px 0 32px}
+    .track{padding-left:0}
+    .track::before{display:none}
+    .phase::before{position:static;margin-bottom:12px}
+    .axiom{padding:22px 24px}
+    .axiom p{font-size:1.15rem}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="head">
+    <p class="eyebrow">Procedimiento estándar · perfiles técnicos</p>
+    <h1>Sistema de búsqueda de empleo</h1>
+    <p class="lede">Seis fases para montar el material completo: CV en varios formatos, presencia web,
+      preparación de entrevistas, postulación y respuesta al proceso de contratación.
+      <strong>Cada fase dice qué produce, cómo verificarlo y qué sale mal.</strong></p>
+
+    <div class="facts">
+      <div class="fact"><b>6</b><span>fases</span></div>
+      <div class="fact"><b>2</b><span>anexos técnicos</span></div>
+      <div class="fact"><b>4</b><span>plantillas</span></div>
+      <div class="fact"><b>7</b><span>recetas con código</span></div>
+      <div class="fact"><b>3</b><span>semanas al primer ciclo</span></div>
+    </div>
+
+    <div class="cta">
+      <a class="btn primary" href="00_RUNBOOK.md">Abrir el runbook →</a>
+      <a class="btn" href="https://github.com/hgomezgonzalez/runbook-busqueda-empleo">Ver en GitHub</a>
+      <a class="btn" href="https://github.com/hgomezgonzalez/runbook-busqueda-empleo/archive/refs/heads/main.zip">Descargar ZIP</a>
+    </div>
+  </header>
+
+  <div class="axiom">
+    <p>Una fuente de datos. Muchos renderizados.</p>
+    <small>Escribes tu experiencia una vez, en un solo archivo. De ahí salen el CV diseñado, el CV para
+      filtros automáticos, el CV web, las cartas y el guion de LinkedIn. Corriges en un sitio y se
+      propaga a todo. Sin eso, el material se desincroniza justo cuando necesitas ser rápido.</small>
+  </div>
+
+  <section>
+    <h2>Las seis fases</h2>
+    <p class="sub">El orden importa: cada una consume lo que produce la anterior. Las fases 1 a 3 pueden
+      avanzar en paralelo una vez cerrada la fase 0.</p>
+
+    <div class="track">
+
+      <article class="phase" data-n="00">
+        <h3>La fuente única de verdad</h3>
+        <a class="file" href="01_datos_base.md">01_datos_base.md</a>
+        <p class="out">Produce: <b>un archivo de datos bilingüe</b> con toda tu información profesional.</p>
+        <ul class="bullets">
+          <li>Esquema fijo: perfil, métricas de impacto, experiencia, competencias con nivel, formación,
+            <b>palabras clave para filtros automáticos</b></li>
+          <li>Cómo redactar un logro: <b>verbo + qué hiciste + con qué + resultado medible</b></li>
+          <li>Las keywords salen de 8–10 ofertas reales, no de la imaginación</li>
+        </ul>
+        <span class="dep">La fase que menos teclea y más determina el resultado</span>
+      </article>
+
+      <article class="phase" data-n="01">
+        <h3>CV en varios formatos</h3>
+        <a class="file" href="02_cv_multiformato.md">02_cv_multiformato.md</a>
+        <p class="out">Produce: <b>CV para filtros, CV diseñado, CV web y foto</b> — todo desde los mismos datos.</p>
+        <ul class="bullets">
+          <li><b>Versión ATS:</b> una columna, sin tablas ni iconos. La que leen los filtros automáticos</li>
+          <li><b>Versión diseñada:</b> para cuando hay una persona del otro lado</li>
+          <li><b>Versión web:</b> bilingüe, autocontenida, publicable</li>
+          <li>La prueba real: copia el texto del PDF y pégalo en un editor plano</li>
+        </ul>
+        <span class="dep">Requiere fase 00</span>
+      </article>
+
+      <article class="phase" data-n="02">
+        <h3>Cartas y LinkedIn</h3>
+        <a class="file" href="03_cartas_y_linkedin.md">03_cartas_y_linkedin.md</a>
+        <p class="out">Produce: <b>cartas por cargo e idioma</b> y el perfil listo para pegar campo por campo.</p>
+        <ul class="bullets">
+          <li>La carta como datos: variantes por cargo sobre los mismos hechos.
+            <b>Cambia el énfasis, nunca las cifras</b></li>
+          <li>LinkedIn es un formulario, no un documento: bloques copiables con su instrucción</li>
+          <li>El titular pesa más que nada en las búsquedas de reclutadores</li>
+        </ul>
+        <span class="dep">Requiere fase 00</span>
+      </article>
+
+      <article class="phase" data-n="03">
+        <h3>Preparación de entrevista</h3>
+        <a class="file" href="04_preparacion_entrevista.md">04_preparacion_entrevista.md</a>
+        <p class="out">Produce: <b>guía de estudio, glosario, banco de preguntas y simulador</b>.</p>
+        <ul class="bullets">
+          <li>El diagnóstico: la mayoría de entrevistas no se pierden por no saber, sino
+            <b>por no saber contarlo</b></li>
+          <li>Cada tema cierra en una frase en primera persona <b>con métrica</b></li>
+          <li>Glosario de tu propio CV: que ninguna palabra que escribiste te sorprenda</li>
+          <li>Tres historias STAR cubren el 80% de las preguntas de comportamiento</li>
+          <li>Guion honesto para lo que no dominas, y la técnica de homologación</li>
+        </ul>
+        <span class="dep">Se construye por temas, en paralelo con las postulaciones</span>
+      </article>
+
+      <article class="phase" data-n="04">
+        <h3>Postulación</h3>
+        <a class="file" href="05_postulacion.md">05_postulacion.md</a>
+        <p class="out">Produce: <b>postulaciones enviadas</b> y una tabla que te dice qué hacer cada día.</p>
+        <ul class="bullets">
+          <li>Los canales ordenados por tasa de respuesta real —
+            <b>un referido vale más que veinte formularios</b></li>
+          <li>Formularios largos: el ciclo ver → ubicar → actuar → verificar, con sus trampas</li>
+          <li>Cuándo <b>no</b> automatizar: preparar el guion y llenarlo a mano</li>
+          <li>Verificar el canal antes de enviar: los correos oficiales se caen</li>
+        </ul>
+        <span class="dep">Requiere fases 01 y 02</span>
+      </article>
+
+      <article class="phase" data-n="05">
+        <h3>Proceso de contratación</h3>
+        <a class="file" href="06_contratacion_documentos.md">06_contratacion_documentos.md</a>
+        <p class="out">Produce: <b>el paquete documental</b> completo, organizado y dentro del límite de tamaño.</p>
+        <ul class="bullets">
+          <li>La carpeta permanente: reúne <b>hoy</b> lo que te van a pedir con plazo de días</li>
+          <li>El índice requisito → archivo, con semáforo de estado y cómo obtener cada uno</li>
+          <li>Qué aportar cuando un documento es imposible de conseguir</li>
+          <li><b>Coherencia:</b> CV, formato, LinkedIn e historial de aportes cuentan lo mismo</li>
+        </ul>
+        <span class="dep">Arranca cuando te seleccionan</span>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Cronograma</h2>
+    <p class="sub">No hagas todo a la vez. Este orden entrega valor desde el primer día.</p>
+    <div class="weeks">
+      <div class="week">
+        <span class="w">Semana 1</span>
+        <h4>Poder postular</h4>
+        <ol>
+          <li>Fase 00 completa</li>
+          <li>Fase 01, solo la versión ATS</li>
+          <li>Empezar a postular ya</li>
+        </ol>
+      </div>
+      <div class="week">
+        <span class="w">Semana 2</span>
+        <h4>Subir la tasa de respuesta</h4>
+        <ol>
+          <li>Fase 01 completa: diseñado, web y foto</li>
+          <li>Fase 02: cartas y LinkedIn</li>
+        </ol>
+      </div>
+      <div class="week">
+        <span class="w">Semana 3 en adelante</span>
+        <h4>Convertir entrevistas</h4>
+        <ol>
+          <li>Fase 03, en paralelo con las postulaciones</li>
+          <li>Fase 05 cuando llegue la selección</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Anexos</h2>
+    <p class="sub">Procedimientos que cuestan tiempo descubrir. Cada uno incluye qué no funciona y por qué.</p>
+    <div class="annex">
+      <div class="card">
+        <h4>Recetas técnicas</h4>
+        <a class="file" href="ANEXO_A_recetas_tecnicas.md">ANEXO_A_recetas_tecnicas.md</a> · 7 recetas
+        <ul>
+          <li>Comprimir PDFs sin arruinarlos — y por qué no tocar los que ya tienen texto</li>
+          <li>Medir si la compresión dañó lo importante, no el promedio</li>
+          <li>Cambiar el fondo de una foto: el halo del borde es el paso que todos omiten</li>
+          <li>Diligenciar un <code>.docx</code> conservando el formato original</li>
+          <li>Extraer texto de escaneos</li>
+          <li>Componer una firma o huella sin destruirla</li>
+          <li>Publicar y verificar en vivo</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Checklists</h4>
+        <a class="file" href="ANEXO_B_checklists.md">ANEXO_B_checklists.md</a>
+        <ul>
+          <li>Antes de enviar una postulación</li>
+          <li>Antes de una entrevista — investigación, preparación y logística</li>
+          <li>Antes de enviar un paquete documental</li>
+          <li>Después de publicar algo en la web</li>
+          <li>Revisión semanal, con las señales de alarma y qué revisar en cada caso</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Las diez reglas</h2>
+    <p class="sub">Salieron de errores concretos. Cada una evita un problema real.</p>
+    <div class="rules">
+      <div class="rule key">
+        <span class="n">01</span>
+        <h5>Nunca declares experiencia que el CV no respalde</h5>
+        <p>Inventar se detecta en dos preguntas. «No lo he operado, pero conozco el modelo y estas son las
+          equivalencias» es una respuesta fuerte, no una debilidad.</p>
+      </div>
+      <div class="rule">
+        <span class="n">02</span>
+        <h5>Una fuente de verdad</h5>
+        <p>Si tienes que corregir la misma cifra en dos archivos, el sistema está mal montado.</p>
+      </div>
+      <div class="rule key">
+        <span class="n">03</span>
+        <h5>La versión ATS es de primera clase</h5>
+        <p>No es «el CV feo». Es el que decide si un humano llega a verte.</p>
+      </div>
+      <div class="rule">
+        <span class="n">04</span>
+        <h5>Verifica el canal antes de enviar</h5>
+        <p>Los correos institucionales publicados se caen y nadie actualiza la web.</p>
+      </div>
+      <div class="rule">
+        <span class="n">05</span>
+        <h5>Separa lo que preparas de lo que solo tú puedes hacer</h5>
+        <p>Sesiones, identidad y envío final son tuyos. Todo lo demás se prepara por adelantado.</p>
+      </div>
+      <div class="rule">
+        <span class="n">06</span>
+        <h5>Conserva acuse de todo</h5>
+        <p>Cuando un proceso se alarga tres meses, tu memoria no sirve como prueba.</p>
+      </div>
+      <div class="rule key">
+        <span class="n">07</span>
+        <h5>Cada logro lleva una métrica</h5>
+        <p>«Mejoré el rendimiento» no dice nada. Si no tienes el número exacto, estima con honestidad.</p>
+      </div>
+      <div class="rule">
+        <span class="n">08</span>
+        <h5>Verifica en el medio real</h5>
+        <p>El CV en PDF, no en el editor. La web en el móvil. El comprimido, abriéndolo.</p>
+      </div>
+      <div class="rule">
+        <span class="n">09</span>
+        <h5>Documenta lo que no funcionó</h5>
+        <p>Es el conocimiento que no vuelves a construir.</p>
+      </div>
+      <div class="rule key">
+        <span class="n">10</span>
+        <h5>Empieza antes de tenerlo perfecto</h5>
+        <p>Un CV decente enviado hoy vale más que un sistema completo la semana entrante.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Qué hay en la carpeta</h2>
+    <p class="sub">Trece archivos, autocontenidos. Se comprime y se envía tal cual.</p>
+    <div class="tree"><pre><span class="d">runbook-busqueda-empleo/</span>
+  00_RUNBOOK.md                  <span class="c">← empieza aquí: mapa, cronograma, reglas</span>
+  01_datos_base.md
+  02_cv_multiformato.md
+  03_cartas_y_linkedin.md
+  04_preparacion_entrevista.md
+  05_postulacion.md
+  06_contratacion_documentos.md
+  ANEXO_A_recetas_tecnicas.md    <span class="c">← código funcional</span>
+  ANEXO_B_checklists.md
+  <span class="d">plantillas/</span>
+    datos_base.py                <span class="c">← esquema con marcadores</span>
+    LISTA_DOCUMENTOS.md
+    seguimiento_postulaciones.md
+    banco_preguntas.md</pre></div>
+
+    <div class="note"><b>Sobre compartirlo:</b> el runbook contiene el método, no datos de nadie —
+      es seguro enviarlo tal cual. Lo que nunca debe salir es la carpeta de trabajo con documentos
+      personales: identidad, dirección y datos familiares. Esa advertencia va también dentro del propio
+      runbook, para quien lo replique.</div>
+  </section>
+
+  <footer>
+    Procedimiento destilado de un sistema real de búsqueda de empleo, anonimizado para reutilización.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var b=document.getElementById('theme'), r=document.documentElement;
+  try{ var s=localStorage.getItem('tema'); if(s) r.setAttribute('data-theme',s); }catch(e){}
+  b.addEventListener('click',function(){
+    var actual=r.getAttribute('data-theme');
+    if(!actual) actual = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark':'light';
+    var nuevo = actual==='dark' ? 'light':'dark';
+    r.setAttribute('data-theme',nuevo);
+    try{ localStorage.setItem('tema',nuevo); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
